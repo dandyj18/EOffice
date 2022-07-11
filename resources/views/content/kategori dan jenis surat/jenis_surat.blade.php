@@ -36,15 +36,16 @@
                                 <?php $no = 0; ?>
 
                                 @foreach($jenis as $j)
-
+                                
                                 <?php 
                                 $no++;
                                 ?>
+                                
                                 <tr class="text-black">
                                     <td class="text-center">{{ $no }}.</td>
-                                    <td>{{$j->kategorisurat_id->nama_kategori}}</td>
-                                    <td>{{$j->nama_jenis}}</td>
-                                    <td>{{$j->kode_jenis}}</td>
+                                    <td>{{ $j->kategori->nama_kategori }}</td>
+                                    <td>{{ $j->nama_jenis }}</td>
+                                    <td class="text-center">{{ $j->kode_jenis }}</td>
                                     <td class="text-center">
                                         <span style="float right">     
                                             <a class="btn btn-warning btn-sm" href="/jenis-surat/edit-jenis-surat/{{$j->id}}" type="button"><img src="{{asset('asset/edit1.png')}}"/></a>

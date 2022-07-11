@@ -13,13 +13,13 @@ class departemen extends Model
 
     protected $fillable = ['id', 'kode_departemen', 'direktorat_id'];
 
+    public function direktorat()
+    {
+        return $this->belongsto(direktorat::class);
+    }
+
     public function jabatan()
     {
         return $this->hasMany(jabatan::class);
-    }
-
-    public function direktorat()
-    {
-        return $this->hasMany(direktorat::class);
     }
 }

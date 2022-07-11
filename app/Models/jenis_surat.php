@@ -11,10 +11,11 @@ class jenis_surat extends Model
 
     protected $table = "jenissurat";
 
-    protected $fillable = ['id', 'kategorisurat_id', 'nama_jenis', 'kode_jenis'];
+    protected $fillable = ['id', 'kategori_id', 'nama_jenis', 'kode_jenis'];
 
-    public function ketegori()
+    public function kategori()
     {
         return $this->belongsTo(kategori::class);
     }
+
 }

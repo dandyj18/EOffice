@@ -17,4 +17,5 @@ class level_jabatan extends Model
     {
         return $this->hasMany(jabatan::class);
     }
+
 }

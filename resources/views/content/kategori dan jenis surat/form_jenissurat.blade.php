@@ -26,13 +26,13 @@
                     </div>
                     @endif
                     <div class="basic-form">
+                        <center>
                         <form action="{{route('insert_jenissurat')}}" method="POST" enctype="multipart/form-data">
                             @csrf
-                            <center>
                                 <div class="form-group col-md-8">
                                     <div class="mb-3">
-                                        <select class="custom-select mr-sm-2" name="kategori_id" required="required" aria-label="Default select example">
-                                            <option disabled selected>Pilih Kategori</option>
+                                        <select class="custom-select mr-sm-2" name="kategori_id" id="kategori_id" required="required" aria-label="Default select example">
+                                            <option disabled selected value>Pilih Kategori</option>
 
                                             @foreach($kategori as $k)
                                                 <option value="{{ $k->id }}">{{ $k->nama_kategori }}</option>
@@ -52,8 +52,8 @@
                                         </span>
                                     </div>
                                 </div>
-                            </center>
-                        </form>
+                            </form>
+                        </center>
                     </div>
                 </div>
             </div>

@@ -43,10 +43,10 @@
                                 ?>
                                 <tr class="text-black">
                                     <td class="text-center">{{ $no }}.</td>
-                                    <td>{{$ja->leveljabatan_id->level_jabatan}}</td>
-                                    <td>{{$ja->direktorat_id->nama_direktorat}}</td>
-                                    <td>{{$ja->devisidepartement_id->kode_departemen}}</td>
-                                    <td>{{$ja->kode_jabatan}}</td>
+                                    <td>{{$ja->leveljabatan->level_jabatan}}</td>
+                                    <td>{{$ja->direktorat->nama_direktorat}}</td>
+                                    <td class="text-center">{{$ja->devisidepartement->kode_departemen}}</td>
+                                    <td class="text-center">{{$ja->kode_jabatan}}</td>
                                     <td>{{$ja->jabatan}}</td>
                                     <td class="text-center">
                                         <span style="float right">     

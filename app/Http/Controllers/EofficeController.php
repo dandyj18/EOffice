@@ -29,14 +29,14 @@ class EofficeController extends Controller
         return view('content.direktorat.form_direktorat');
     }
 
-    public function insert_direktorat(){
+    public function insert_direktorat(Request $request){
         $request -> validate([
             'kode_direktorat' => 'required',
             'nama_direktorat' => 'required'
         ]);
         
         
-        $direktorat = direktorat::create([
+        direktorat::create([
             'kode_direktorat' => $request->kode_direktorat,
             'nama_direktorat' => $request->nama_direktorat
         ]);
@@ -87,7 +87,7 @@ class EofficeController extends Controller
         return view('content.departemen.form_departemen', ['dir' => $dir]);
     }
 
-    public function insert_depar(){
+    public function insert_depar(Request $request){
         $request -> validate([
             'kode_departemen' => 'required',
             'direktorat_id' => 'required'
@@ -139,24 +139,24 @@ class EofficeController extends Controller
         return view('content.kategori dan jenis surat.form_kategori');
     }
 
-    public function insert_kategori(){
+    public function insert_kategori(Request $request){
         $request -> validate([
-            'kode_kategori' => 'required',
+            'no_kategori' => 'required',
             'nama_kategori' => 'required'
         ]);
         
         
-        $kategori = keategori::create([
-            'kode_kategori' => $request->kode_kategori,
+        $kategori = kategori::create([
+            'no_kategori' => $request->no_kategori,
             'nama_kategori' => $request->nama_kategori
         ]);
 
-        return redirect()->route('jenis_surat');
+        return redirect()->route('jenis');
     }
 
     public function jenis_surat(){
         $jenis = jenis_surat::all();
-        
+
         return view('content.kategori dan jenis surat.jenis_surat', ['jenis' => $jenis]);
     }
 
@@ -166,7 +166,7 @@ class EofficeController extends Controller
         return view('content.kategori dan jenis surat.form_jenissurat', ['kategori' => $kategori]);
     }
 
-    public function insert_jenissurat(){
+    public function insert_jenissurat(Request $request){
         $request -> validate([
             'kategori_id' => 'required',
             'nama_jenis' => 'required',
@@ -174,13 +174,13 @@ class EofficeController extends Controller
         ]);
         
         
-        $jenis = jenis_surat::create([
+        jenis_surat::create([
             'kategori_id' => $request->kategori_id,
             'nama_jenis' => $request->nama_jenis,
             'kode_jenis' => $request->kode_jenis,
         ]);
 
-        return redirect()->route('jenis_surat');
+        return redirect()->route('jenis');
     }
 
     public function deletejenis($id)
@@ -231,7 +231,7 @@ class EofficeController extends Controller
         return view('content.jabatan.form_jabatan', ['level' => $level, 'dir' => $dir, 'devisi' => $devisi]);
     }
 
-    public function insert_jabatan(){
+    public function insert_jabatan(Request $request){
         $request -> validate([
             'leveljabatan_id' => 'required',
             'direktorat_id' => 'required',
@@ -241,11 +241,11 @@ class EofficeController extends Controller
         ]);
         
         
-        $jabatan = jabatan::create([
+        jabatan::create([
             'leveljabatan_id' => $request->leveljabatan_id,
             'direktorat_id' => $request->direktorat_id,
             'devisidepartement_id' => $request->devisidepartement_id,
-            'koda_jabatan' => $request->kode_jabatan,
+            'kode_jabatan' => $request->kode_jabatan,
             'jabatan' => $request->jabatan,
         ]);
 
@@ -304,13 +304,13 @@ class EofficeController extends Controller
 
     }
 
-    public function insert_level(){
+    public function insert_level(Request $request){
         $request -> validate([
             'level_jabatan' => 'required'
         ]);
         
         
-        $level = level::create([
+        level_jabatan::create([
             'level_jabatan' => $request->level_jabatan
         ]);
 

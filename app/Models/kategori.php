@@ -9,11 +9,11 @@ class kategori extends Model
 {
     use HasFactory;
     
-    protected $table = "kategorisurat";
+    protected $table = "kategori";
 
     protected $fillable = ['id', 'no_kategori', 'nama_kategori'];
 
-    public function jenis_surat()
+    public function jenissurat()
     {
         return $this->hasMany(jenis_surat::class);
     }

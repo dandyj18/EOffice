@@ -13,7 +13,7 @@ class jabatan extends Model
 
     protected $fillable = ['id', 'leveljabatan_id', 'direktorat_id', 'devisidepartement_id', 'kode_jabatan', 'jabatan'];
 
-    public function level_jabatan()
+    public function leveljabatan()
     {
         return $this->belongsTo(level_jabatan::class);
     }
@@ -23,9 +23,8 @@ class jabatan extends Model
         return $this->belongsTo(direktorat::class);
     }
 
-    public function departemen()
+    public function devisidepartement()
     {
         return $this->belongsTo(departemen::class);
     }
-
 }

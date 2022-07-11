@@ -15,7 +15,7 @@ class CreateJenissuratTable extends Migration
     {
         Schema::create('jenissurat', function (Blueprint $table) {
             $table->id();
-            $table->integer('kategorisurat_id');
+            $table->integer('kategori_id');
             $table->string('nama_jenis');
             $table->integer('kode_jenis' );
             $table->timestamps();

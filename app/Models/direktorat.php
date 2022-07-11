@@ -11,15 +11,15 @@ class direktorat extends Model
 
     protected $table = "direktorat";
 
-    protected $fillable = ['id', 'kode_direktorat', 'nama_direaktorat'];
+    protected $fillable = ['id', 'kode_direktorat', 'nama_direktorat'];
+
+    public function departemen()
+    {
+        return $this->hasMany(departemen::class);
+    }
 
     public function jabatan()
     {
         return $this->hasMany(jabatan::class);
-    }
-
-    public function departemen()
-    {
-        return $this->belongsTo(departemen::class);
     }
 }

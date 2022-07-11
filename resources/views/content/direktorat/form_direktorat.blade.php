@@ -26,9 +26,9 @@
                     </div>
                     @endif
                     <div class="basic-form">
+                        <center>
                         <form action="{{route('insert_direktorat')}}" method="POST" enctype="multipart/form-data">
                             @csrf
-                            <center>
                             <div class="form-group col-md-8">
                                 <div class="mb-3">
                                     <input type="text" class="form-control input-Default" name="kode_direktorat" required="required" placeholder="Kode Direktorat">
@@ -43,8 +43,8 @@
                                     </span>
                                 </div>
                             </div>
-                        </center>
                         </form>
+                    </center>
                     </div>
                 </div>
             </div>

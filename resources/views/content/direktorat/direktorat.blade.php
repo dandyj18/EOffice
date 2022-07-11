@@ -40,7 +40,7 @@
                                 ?>
                                 <tr class="text-black">
                                     <td class="text-center">{{ $no }}.</td>
-                                    <td>{{$d->kode_direktorat}}</td>
+                                    <td class="text-center">{{$d->kode_direktorat}}</td>
                                     <td>{{$d->nama_direktorat}}</td>
                                     <td class="text-center">
                                         <span style="float right">     

@@ -40,8 +40,8 @@
                                 ?>
                                 <tr class="text-black">
                                     <td class="text-center">{{ $no }}.</td>
-                                    <td>{{$de->kode_departemen}}</td>
-                                    <td>{{$de->direktorat_id}}</td>
+                                    <td class="text-center">{{$de->kode_departemen}}</td>
+                                    <td>{{$de->direktorat->nama_direktorat}}</td>
                                     <td class="text-center">
                                         <span style="float right">     
                                             <a class="btn btn-warning btn-sm" href="/departemen/edit-departemen/{{$de->id}}" type="button"><img src="{{asset('asset/edit1.png')}}"/></a>

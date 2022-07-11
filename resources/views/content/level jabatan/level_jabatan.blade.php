@@ -39,7 +39,7 @@
                                 ?>
                                 <tr class="text-black">
                                     <td class="text-center">{{ $no }}.</td>
-                                    <td>{{$l->level_jabatan}}</td>                                    <td>{{$j->kode_jenis}}</td>
+                                    <td>{{$l->level_jabatan}}</td>
                                     <td class="text-center">
                                         <span style="float right">     
                                             <a class="btn btn-warning btn-sm" href="/level-jabatan/edit-level-jabatan/{{$l->id}}" type="button"><img src="{{asset('asset/edit1.png')}}"/></a>

@@ -25,17 +25,17 @@
                         @endforeach
                     </div>
                     @endif
+                    <center>
                     <div class="basic-form">
                         <form action="{{route('insert_jabatan')}}" method="POST" enctype="multipart/form-data">
                             @csrf
-                            <center>
                                 <div class="form-group col-md-8">
                                     <div class="mb-3">
                                         <select class="custom-select mr-sm-2" name="leveljabatan_id" required="required" aria-label="Default select example">
                                             <option disabled selected>Pilih Level Jabatan</option>
 
-                                            @foreach($level as $le)
-                                                <option value="{{ $le->id }}">{{ $di->level_jabatan }}</option>
+                                            @foreach($level as $l)
+                                                <option value="{{ $l->id }}">{{ $l->level_jabatan }}</option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -64,16 +64,14 @@
                                         <input type="text" class="form-control input-Default" name="jabatan" required="required" placeholder="Jabatan">
                                 </div>
                                     <div class="mb-3">
-                                        
                                             <span>
                                                 <input class="btn btn-primary" type="submit" value="Submit" onClick="return confirm('Apakah data yang dimasukkan sudah benar ?')">
                                                 <a class="btn btn-success text-white" href="{{route('jabatan')}}" role="button">Kembali</a>
                                             </span>
-                                        
                                     </div>
                                 </div>
-                            </center>
-                        </form>
+                            </form>
+                        </center>
                     </div>
                 </div>
             </div>
