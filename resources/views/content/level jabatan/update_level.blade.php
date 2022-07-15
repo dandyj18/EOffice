@@ -7,7 +7,7 @@
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a >Data</a></li>
             <li class="breadcrumb-item"><a href="{{route('level')}}">Level Jabatan</a></li>
-            <li class="breadcrumb-item active"><a href="{{route('update_level')}}">Update Level Jabatan</a></li>
+            <li class="breadcrumb-item active">Update Level Jabatan</li>
         </ol>
     </div>
 </div>
@@ -26,7 +26,7 @@
                     </div>
                     @endif
                     <div class="basic-form">
-                        <form action="{{url('level-jabatan/update-level-jabatan', $level->id)}}" method="POST" enctype="multipart/form-data">
+                        <form action="{{url('level-jabatan/update-level-jabatan' . $level->id)}}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <center>
                                 <div class="form-group col-md-8">

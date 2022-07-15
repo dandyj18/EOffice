@@ -7,7 +7,7 @@
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a >Data</a></li>
             <li class="breadcrumb-item"><a href="{{route('jabatan')}}">Jabatan</a></li>
-            <li class="breadcrumb-item active"><a href="{{route('update_jabatan')}}">Update Jabatan</a></li>
+            <li class="breadcrumb-item active">Update Jabatan</li>
         </ol>
     </div>
 </div>
@@ -26,7 +26,7 @@
                     </div>
                     @endif
                     <div class="basic-form">
-                        <form action="{{url('direktorat/update_jabatan', $jabatan->id)}}" method="POST" enctype="multipart/form-data">
+                        <form action="{{url('direktorat/update_jabatan' . $jabatan->id)}}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <center>
                                 <div class="form-group col-md-8">
@@ -35,7 +35,7 @@
                                             <option disabled value="{{ $jabatan->leveljabatan->id }}" selected>{{ $jabatan->leveljabatan->level_jabatan }}</option>
 
                                             @foreach($level as $le)
-                                                <option value="{{ $le->id }}">{{ $di->level_jabatan }}</option>
+                                                <option value="{{ $le->id }}">{{ $le->level_jabatan }}</option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -52,7 +52,7 @@
                                         <select class="custom-select mr-sm-2" name="devisidepartement_id" required="required" aria-label="Default select example">
                                             <option disabled value="{{ $jabatan->devisidepartement->id }}" selected>{{ $jabatan->devisidepartement->kode_departemen }}</option>
 
-                                            @foreach($devisi as $dd)
+                                            @foreach($departemen as $dd)
                                                 <option value="{{ $dd->id }}">{{ $dd->kode_departemen }}</option>
                                             @endforeach
                                         </select>
@@ -61,7 +61,7 @@
                                         <input type="text" class="form-control input-Default" name="kode_jabatan" required="required" placeholder="Kode Jabatan" value="{{ $jabatan->kode_jabatan }}"  >
                                     </div>
                                     <div class="mb-3">
-                                        <input type="text" class="form-control input-Default" name="jabatan" required="required" placeholder="Jabatan" value="{{ $jabatan->nama_jabatan }}">
+                                        <input type="text" class="form-control input-Default" name="jabatan" required="required" placeholder="Jabatan" value="{{ $jabatan->jabatan }}">
                                 </div>
                                     <div class="mb-3">
                                         

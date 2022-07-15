@@ -1,4 +1,5 @@
-<div class="nk-sidebar">           
+
+<div class="nk-sidebar" >         
     <div class="nk-nav-scroll">
         <ul class="metismenu" id="menu">
             <li class="nav-label">Dashboard</li>
@@ -8,7 +9,7 @@
                 </a>
                 <ul aria-expanded="false">
                     
-                    <li><a href="./index.html">Home</a></li>
+                    <li><a href="{{route('dashboard')}}">Home</a></li>
                 </ul>
             </li>   
             <li class="nav-label">Apps</li>
@@ -17,8 +18,10 @@
                     <i class="icon-envelope menu-icon"></i> <span class="nav-text">Surat</span>
                 </a>
                 <ul aria-expanded="false">
-                    <li><a href="./email-inbox.html">Surat Masuk</a></li>
-                    <li><a href="./email-inbox.html">Surat Keluar</a></li>
+                    <li><a href="{{route('surat_masuk')}}">Surat Masuk</a></li>
+                    <li><a href="{{route('surat_keluar')}}">Surat Keluar</a></li>
+                    <li><a href="{{route('disposisi')}}">Disposisi</a></li>
+                    <li><a href="{{route('memo')}}">Memo</a></li>
                 </ul>
             </li>
             <li>

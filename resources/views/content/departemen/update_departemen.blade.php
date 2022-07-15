@@ -7,7 +7,7 @@
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a >Data</a></li>
             <li class="breadcrumb-item"><a href="{{route('departemen')}}">Devisi Departemen</a></li>
-            <li class="breadcrumb-item active"><a href="{{route('update_departemen')}}">Update Data Devisi Departemen</a></li>
+            <li class="breadcrumb-item active">Update Data Devisi Departemen</li>
         </ol>
     </div>
 </div>
@@ -26,7 +26,7 @@
                     </div>
                     @endif
                     <div class="basic-form">
-                        <form action="{{url('departemen/update-departemen', $departemen->id)}}" method="POST" enctype="multipart/form-data">
+                        <form action="{{url('departemen/update-departemen'. $departemen->id)}}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <center>
                             <div class="form-group col-md-8">

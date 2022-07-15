@@ -14,8 +14,13 @@ use App\Models\kategori;
 class EofficeController extends Controller
 {
     public function dashboard(){
-        return view('template.index');
+        $pegawai = pegawai::count();
+        $departemen = departemen::count();
+        $dir = direktorat::count();
+
+        return view('content.dashboard', ['pegawai' => $pegawai,'departemen' => $departemen, 'dir' => $dir]);
     }
+
 
 
     //direktorat
@@ -54,9 +59,9 @@ class EofficeController extends Controller
 
     public function editdirektorat($id)
     {
-        $dir = direktorat::find($id);
+        $dir = direktorat::findOrFail($id);
 
-        return view('contente.direktorat.update_direktorat', ['dir' => $dir]);
+        return view('content.direktorat.update_direktorat', ['dir' => $dir]);
     }
 
     public function updatdirektorat($id, Request $request)
@@ -66,12 +71,13 @@ class EofficeController extends Controller
             'nama_direktorat' => 'required'
         ]);
     
-        $dir = direktorat::find($id);
+        $dir = direktorat::findOrFail($id);
         $dir->kode_direktorat = $request->kode_direktorat;
         $dir->nama_direktorat = $request->nama_direktorat;
         $dir->save();
         return redirect()->route('direktorat');
     }
+
 
 
     //departemen
@@ -115,7 +121,7 @@ class EofficeController extends Controller
         $departemen = departemen::find($id);
         $dir = direktorat::all();
 
-        return view('contente.departemen.update_departemen', ['departemen' => $departemen, 'dir' => $dir]);
+        return view('content.departemen.update_departemen', ['departemen' => $departemen, 'dir' => $dir]);
     }
     
     public function updatdepartemen($id, Request $request)
@@ -131,6 +137,7 @@ class EofficeController extends Controller
         $departemen->save();
         return redirect()->route('depatemen');
     }
+
 
 
     //jenis surat dan kategori
@@ -196,7 +203,7 @@ class EofficeController extends Controller
         $jenis = jenis_surat::find($id);
         $kategori = kategori::all();
         
-        return view('contente.kategori dan jenis surat.update_jenissurat', ['jenis' => $jenis, 'kategori' => $kategori]);
+        return view('content.kategori dan jenis surat.update_jenissurat', ['jenis' => $jenis, 'kategori' => $kategori]);
     }
 
     public function updatjenis($id, Request $request)
@@ -215,6 +222,7 @@ class EofficeController extends Controller
         return redirect()->route('jenis');
     }
 
+
     
     //jabatan
     public function jabatan(){
@@ -223,12 +231,14 @@ class EofficeController extends Controller
         return view('content.jabatan.jabatan', ['jabatan' => $jabatan]);
     }
 
+
     public function form_jabatan(){
         $level = level_jabatan::all();
         $dir = direktorat::all();
-        $devisi = departemen::all();
+        $departemen = departemen::all();
+        $jabatan = jabatan::all();
 
-        return view('content.jabatan.form_jabatan', ['level' => $level, 'dir' => $dir, 'devisi' => $devisi]);
+        return view('content.jabatan.form_jabatan', ['level' => $level, 'dir' => $dir, 'departemen' => $departemen, 'jabatan' => $jabatan]);
     }
 
     public function insert_jabatan(Request $request){
@@ -267,7 +277,7 @@ class EofficeController extends Controller
         $departemen = departemen::all();
         $dir = direktorat::all();
         
-        return view('contente.jabatan.update_jabatan', ['jabatan' => $jabatan, 'level' => $level, 'departemen' => $departemen, 'dir' => $dir]);
+        return view('content.jabatan.update_jabatan', ['jabatan' => $jabatan, 'level' => $level, 'departemen' => $departemen, 'dir' => $dir]);
     }
 
     public function updatejabatan($id, Request $request)
@@ -289,6 +299,7 @@ class EofficeController extends Controller
         $jabatan->save();
         return redirect()->route('jabatan');
     }
+
 
 
     //level jabatan
@@ -330,7 +341,7 @@ class EofficeController extends Controller
     {
         $level = level_jabatan::find($id);
         
-        return view('contente.level jabatan.update_level', ['level' => $level]);
+        return view('content.level jabatan.update_level', ['level' => $level]);
     }
 
     public function updatlevel($id, Request $request)
@@ -346,6 +357,7 @@ class EofficeController extends Controller
     }
 
 
+
     //pegawai
     public function pegawai(){
         $pegawai = pegawai::all();
@@ -353,4 +365,79 @@ class EofficeController extends Controller
         return view('content.pegawai.pegawai', ['pegawai' => $pegawai]);
     }
 
+    public function form_pegawai(){
+        $pegawai = pegawai::all();
+        $dir = direktorat::all();
+        $departemen = departemen::all();
+        $jabatan = jabatan::all();
+
+        return view('content.pegawai.form_pegawai', ['pegawai' => $pegawai, 'dir' => $dir, 'departemen' => $departemen, 'jabatan' => $jabatan]);
+    }
+
+    public function editpegawai($id)
+    {
+        $pegawai = pegawai::find($id);
+        $jabatan = jabatan::all();
+        $departemen = departemen::all();
+        $dir = direktorat::all();
+        
+        return view('content.jabatan.update_jabatan', ['jabatan' => $jabatan, 'pegawai' => $pegawai, 'departemen' => $departemen, 'dir' => $dir]);
+    }
+
+    public function deletepegawai($id)
+    {
+        $pegawai = pegawai::findOrFail($id);
+
+        $pegawai->delete();
+        return redirect()->route('pegawai');
+    }
+
+
+
+    //surat masuk
+    public function surat_masuk()
+    {
+        
+        return view('content.surat.surat_masuk.surat_masuk');
+    }
+
+    public function form_masuk()
+    {
+        
+        return view('content.surat.surat_masuk.form_masuk');
+    }
+
+
+    //surat keluar
+    public function surat_keluar()
+    {
+        
+        return view('content.surat.surat_keluar.surat_keluar');
+    }
+    
+    public function form_keluar()
+    {
+        
+        return view('content.surat.surat_keluar.form_keluar');
+    }
+
+    //Disposisi
+    public function disposisi()
+    {
+        
+        return view('content.surat.disposisi.disposisi');
+    }
+
+    //Memo
+    public function memo()
+    {
+        
+        return view('content.surat.memo.memo');
+    }
+
+    public function form_memo()
+    {
+        
+        return view('content.surat.memo.form_memo');
+    }
 }

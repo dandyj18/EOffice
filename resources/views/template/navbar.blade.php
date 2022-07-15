@@ -1,6 +1,6 @@
 <div class="nav-header">
     <div class="brand-logo">
-        <a href="index.html">
+        <a href="{{route('dashboard')}}">
             <b class="logo-abbr"><h3 class="text-white">E</h3></b>
             <span class="logo-compact"><img src="{{asset('asset/images/logo-compact.png')}}" alt=""></span>
             <span class="brand-title">
