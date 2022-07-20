@@ -27,47 +27,58 @@
                     @endif
                     <center>
                     <div class="basic-form">
-                        <form action="" method="POST" enctype="multipart/form-data">
+                        <form action="{{url('/pegawai/update-pegawai/' . $pegawai->id)}}" method="POST" enctype="multipart/form-data">
                             @csrf
                                 <div class="form-group col-md-8">
                                     <div class="mb-3">
-                                        <input type="text" class="form-control input-Default" name="nik" required="required" placeholder="NIK" value="">
+                                        <input type="text" class="form-control input-Default" name="nik" required="required" placeholder="NIK" value="{{$pegawai->nik}}">
                                     </div>
                                     <div class="mb-3">
-                                        <input type="text" class="form-control input-Default" name="no_ktp" required="required" placeholder="Nomor KTP"  value="">
+                                        <input type="text" class="form-control input-Default" name="no_ktp" required="required" placeholder="Nomor KTP"  value="{{$pegawai->no_ktp}}">
                                     </div>
                                     <div class="mb-3">
-                                        <input type="text" class="form-control input-Default" name="nama_pegawai" required="required" placeholder="Nama"  value="">
+                                        <input type="text" class="form-control input-Default" name="nama_pegawai" required="required" placeholder="Nama"  value="{{$pegawai->nama_pegawai}}">
                                     </div>
                                     <div class="mb-3">
-                                        <input type="text" class="form-control input-Default" name="npwp" required="required" placeholder="NPWP"  value="">
+                                        <input type="text" class="form-control input-Default" name="npwp" required="required" placeholder="NPWP"  value="{{$pegawai->npwp}}">
                                     </div>
                                     <div class="mb-3">
-                                        <select class="custom-select mr-sm-2" name="leveljabatan_id" required="required" aria-label="Default select example">
-                                            <option disabled selected value="">Pilih Jabatan</option>
+                                        <select class="custom-select mr-sm-2" name="jabatan_id" required="required" aria-label="Default select example">
+                                            <option selected value="{{ $pegawai->jabatan->id }}">{{ $pegawai->jabatan->jabatan }}</option>
 
                                             @foreach($jabatan as $j)
-                                                <option value="{{ $j->jabatan }}">{{ $j->jabatan }}</option>
+                                                <option value="{{ $j->id }}">{{ $j->jabatan }}</option>
                                             @endforeach
-                                        </select>
-                                    </div>
-                                    <div class="mb-3">
-                                        <select class="custom-select mr-sm-2" name="devisidepartement_id" required="required" aria-label="Default select example">
-                                            <option disabled selected  value="">Pilih Devisi Departemen</option>
 
-                                            @foreach($departemen as $dd)
-                                                <option value="{{ $dd->id }}">{{ $dd->kode_departemen }}</option>
-                                            @endforeach
                                         </select>
+                                        @error('jabatan_id')
+                                            <div>{{ $message }}</div>
+                                        @enderror
                                     </div>
                                     <div class="mb-3">
-                                        <select class="custom-select mr-sm-2" name="direktorat_id" required="required" aria-label="Default select example">
-                                            <option disabled selected  value="">Pilih Direktorat</option>
+                                        <select class="custom-select mr-sm-2" name="direktorat_id" id="direktorat_id" required="required" aria-label="Default select example">
+                                            <option selected value="{{ $pegawai->direktorat->id }}">{{ $pegawai->direktorat->nama_direktorat }}</option>
 
                                             @foreach($dir as $di)
                                                 <option value="{{ $di->id }}">{{ $di->nama_direktorat }}</option>
                                             @endforeach
                                         </select>
+                                        @error('direktorat_id')
+                                            <div>{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                    <div class="mb-3">
+                                        <select class="custom-select mr-sm-2" name="devisidepartement_id" id="devisidepartement_id" required="required"  aria-label="Default select example">
+                                            <option selected value="{{ $pegawai->devisidepartement->id }}">{{ $pegawai->devisidepartement->kode_departemen }}</option>
+
+                                            @foreach($departemen as $de)
+                                                <option value="{{ $de->id }}">{{ $de->kode_departemen }}</option>
+                                            @endforeach
+
+                                        </select>
+                                        @error('devisidepartement_id')
+                                            <div>{{ $message }}</div>
+                                        @enderror
                                     </div>
                                     <div class="mb-3">
                                         <span>

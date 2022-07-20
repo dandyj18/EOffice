@@ -45,12 +45,13 @@
                                 ?>
                                 <tr class="text-black">
                                     <td class="text-center">{{ $no }}.</td>
-                                    <td>{{$p->nik}}<td>
+                                    <td>{{$p->nik}}</td>
                                     <td>{{$p->no_ktp}}</td>
                                     <td>{{$p->nama_pegawai}}</td>
                                     <td>{{$p->npwp}}</td>
-                                    <td>{{$p->jabatan_id->direktorat_id}}</td>
-                                    <td>{{$p->jabatan_id->departemen_id}}</td>
+                                    <td>{{$p->jabatan->jabatan}}</td>
+                                    <td>{{$p->direktorat->nama_direktorat}}</td>
+                                    <td>{{$p->devisidepartement->kode_departemen}}</td>
                                     <td class="text-center">
                                         <span style="float right">     
                                             <a class="btn btn-warning btn-sm" href="/pegawai/edit-pegawai/{{$p->id}}" type="button"><img src="{{asset('asset/edit1.png')}}"/></a>

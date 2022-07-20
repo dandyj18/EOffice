@@ -22,4 +22,9 @@ class departemen extends Model
     {
         return $this->hasMany(jabatan::class);
     }
+
+    public function pegawai()
+    {
+        return $this->hasMany(pegawai::class);
+    }
 }

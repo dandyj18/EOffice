@@ -45,7 +45,7 @@ Route::post('/insert-jabatan', [App\Http\Controllers\EofficeController::class, '
 Route::get('/jabatan/delete-jabatan/{id}', [App\Http\Controllers\EofficeController::class, 'deletejabatan']);
 Route::get('/jabatan/edit-jabatan/{id}', [App\Http\Controllers\EofficeController::class, 'editjabatan']);
 Route::post('/jabatan/update-jabatan/{id}', [App\Http\Controllers\EofficeController::class, 'updatejabatan']);
-Route::get('/jabatan/getdepartemen', [App\Http\Controllers\EofficeController::class, 'getdepartemen'])->name('getdepartemen');
+Route::get('/jabatan/getdepartemen/{id}', [App\Http\Controllers\EofficeController::class, 'getdepartemen'])->name('getdepartemen');
 
 
 //jenis surat dan kategori surat
@@ -72,8 +72,11 @@ Route::post('/level-jabatan/update-level-jabatan/{id}', [App\Http\Controllers\Eo
 //pegawai
 Route::get('/pegawai', [App\Http\Controllers\EofficeController::class, 'pegawai'])->name('pegawai');
 Route::get('/form-pegawai', [App\Http\Controllers\EofficeController::class, 'form_pegawai'])->name('form_pegawai');
+Route::get('/pegawai/getdepartemenpegawai/{id}', [App\Http\Controllers\EofficeController::class, 'getdepartemen'])->name('getdepartemenpegawai');
+Route::post('/insert-pegawai', [App\Http\Controllers\EofficeController::class, 'insert_pegawai'])->name('insert_pegawai');
 Route::get('/pegawai/edit-pegawai/{id}', [App\Http\Controllers\EofficeController::class, 'editpegawai']);
 Route::get('/pegawai/delete-pegawai/{id}', [App\Http\Controllers\EofficeController::class, 'deletepegawai']);
+Route::post('/pegawai/update-pegawai/{id}', [App\Http\Controllers\EofficeController::class, 'updatepegawai']);
 
 
 

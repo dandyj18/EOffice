@@ -27,7 +27,7 @@
                     @endif
                     <center>
                     <div class="basic-form">
-                        <form action="" method="POST" enctype="multipart/form-data">
+                        <form action="{{route('insert_pegawai')}}" method="POST" enctype="multipart/form-data">
                             @csrf
                                 <div class="form-group col-md-8">
                                     <div class="mb-3">
@@ -37,36 +37,32 @@
                                         <input type="text" class="form-control input-Default" name="no_ktp" required="required" placeholder="Nomor KTP">
                                     </div>
                                     <div class="mb-3">
-                                        <input type="text" class="form-control input-Default" name="nama_pegawai" required="required" placeholder="Nama">
+                                        <input type="text" class="form-control input-Default" name="nama_pegawai" id="nama_pegawai" required="required" placeholder="Nama">
                                     </div>
                                     <div class="mb-3">
                                         <input type="text" class="form-control input-Default" name="npwp" required="required" placeholder="NPWP">
                                     </div>
                                     <div class="mb-3">
-                                        <select class="custom-select mr-sm-2" name="leveljabatan_id" required="required" aria-label="Default select example">
+                                        <select class="custom-select mr-sm-2" name="jabatan_id" required="required" aria-label="Default select example">
                                             <option disabled selected>Pilih Jabatan</option>
 
                                             @foreach($jabatan as $j)
-                                                <option value="{{ $j->jabatan }}">{{ $j->jabatan }}</option>
+                                                <option value="{{ $j->id }}">{{ $j->jabatan }}</option>
                                             @endforeach
                                         </select>
                                     </div>
                                     <div class="mb-3">
-                                        <select class="custom-select mr-sm-2" name="devisidepartement_id" required="required" aria-label="Default select example">
-                                            <option disabled selected>Pilih Devisi Departemen</option>
-
-                                            @foreach($departemen as $dd)
-                                                <option value="{{ $dd->id }}">{{ $dd->kode_departemen }}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                    <div class="mb-3">
-                                        <select class="custom-select mr-sm-2" name="direktorat_id" required="required" aria-label="Default select example">
+                                        <select class="custom-select mr-sm-2" name="direktorat_id" id="direktorat_id" required="required" aria-label="Default select example">
                                             <option disabled selected>Pilih Direktorat</option>
 
-                                            @foreach($dir as $di)
-                                                <option value="{{ $di->id }}">{{ $di->nama_direktorat }}</option>
+                                            @foreach($dir as $key => $value)
+                                                <option value="{{ $key }}">{{ $value }}</option>
                                             @endforeach
+                                        </select>
+                                    </div>
+                                    <div class="mb-3">
+                                        <select class="custom-select mr-sm-2" name="devisidepartement_id" id="devisidepartement_id" required="required" aria-label="Default select example">
+                                            <option disabled selected>Pilih Devisi Departemen</option>
                                         </select>
                                     </div>
                                     <div class="mb-3">
@@ -84,4 +80,27 @@
         </div>
     </div>
 </div>
+<script type="text/javascript">
+    $(document).ready(function(){
+         $('#direktorat_id').on('change',function(){
+             var dirID = $(this).val();
+             if(dirID){
+                 $.ajax({
+                     url : 'pegawai/getdepartemenpegawai/'+dirID,
+                     type : "GET",
+                     dataType : "json",
+                     success: function(data){
+                         console.log(data);
+                         $('#devisidepartement_id').empty();
+                         $.each(data, function(key, value){
+                             $('#devisidepartement_id').append('<option value="'+ key +'">'+ value +'</option>');
+                         });
+                     }
+                 });
+             }else{
+                 $('#devisidepartement_id').empty();
+             }
+         });
+    });
+ </script>
 @endsection

@@ -43,13 +43,14 @@
                                         <select class="custom-select mr-sm-2" name="direktorat_id" id="direktorat_id" required="required" aria-label="Default select example">
                                             <option disabled selected>Pilih Direktorat</option>
 
-                                            @foreach($dir as $di)
-                                                <option value="{{ $di->id }}">{{ $di->nama_direktorat }}</option>
+                                            @foreach($dir as $key => $value)
+                                                <option value="{{ $key }}">{{ $value }}</option>
                                             @endforeach
                                         </select>
                                     </div>
-                                    <div class="mb-3">
+                                    <div class="departemen-form mb-3">
                                         <select class="custom-select mr-sm-2" name="devisidepartement_id" id="devisidepartement_id" required="required" aria-label="Default select example">
+                                            <option disabled selected>Pilih Departemen</option>
                                         </select>
                                     </div>
                                     <div class="mb-3">
@@ -57,7 +58,7 @@
                                     </div>
                                     <div class="mb-3">
                                         <input type="text" class="form-control input-Default" name="jabatan" required="required" placeholder="Jabatan">
-                                </div>
+                                    </div>
                                     <div class="mb-3">
                                             <span>
                                                 <input class="btn btn-primary" type="submit" value="Submit" onClick="return confirm('Apakah data yang dimasukkan sudah benar ?')">
@@ -74,20 +75,43 @@
     </div>
 </div>
 <script type="text/javascript">
-    $(document).ready(function(){
-        $('#di').on('change', function(){
-            var dirID = $(this).val;
-            $.ajax({
-                type:'get',
-                url:'{{route('getdepartemen')}}?direktorat_id=' +dirID,
-                success: function (res){
-                    $('#departemen').append('<option>Pilih Departemen</option>');
-                    $.each(res, function(key,value){
-                        $('#departemen').append('<option value="' +value.id+ '">' +value.kode_departemen+ '</option>');
-                    });
-                }
-            });
+   $(document).ready(function(){
+        $('#direktorat_id').on('change',function(){
+            var dirID = $(this).val();
+            if(dirID){
+                $.ajax({
+                    url : 'jabatan/getdepartemen/' +dirID,
+                    type : "GET",
+                    dataType : "json",
+                    success: function(data){
+                        console.log(data);
+                        $('#devisidepartement_id').empty();
+                        $.each(data, function(key, value){
+                            $('#devisidepartement_id').append('<option value="'+ key +'">'+ value +'</option>');
+                        });
+                    }
+                });
+            }else{
+                $('#devisidepartement_id').empty();
+            }
         });
+   });
+</script>
+<script>
+$(function(){
+    var hidestuff = function(){
+        $(".departemen-form").hide();
+    }
+    
+    $("select[name='leveljabatan_id']").change(function(){
+        hidestuff();
+        
+        var value = $(this).val();
+        if(value == "1"){
+        $(".departemen-form").show();
+        }
     });
+    hidestuff();
+});
 </script>
 @endsection

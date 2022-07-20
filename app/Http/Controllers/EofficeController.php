@@ -234,22 +234,17 @@ class EofficeController extends Controller
 
     public function form_jabatan(){
         $level = level_jabatan::all();
-        $dir = direktorat::all();
+        $dir = direktorat::all()->pluck("nama_direktorat","id");
         $departemen = departemen::all();
         $jabatan = jabatan::all();
 
         return view('content.jabatan.form_jabatan', ['level' => $level, 'dir' => $dir, 'departemen' => $departemen, 'jabatan' => $jabatan]);
     }
 
-    public function getdepartemen(Request $request){
-        /*$departemen = departemen::where("direktorat_id", $request->direktorat_id)->pluck('kode_departemen', 'id');
+    public function getdepartemen($id){
+        $departemen = departemen::all()->where("direktorat_id", $id)->pluck("kode_departemen", "id");
 
-        return response()->json($departemen);*/
-        abort_unless(\Gate::allows('departemen'), 401);
-
-        if(!$request->direktorat_id){
-
-        }
+        return json_encode($departemen);
     }
 
     public function insert_jabatan(Request $request){
@@ -295,7 +290,6 @@ class EofficeController extends Controller
     {
         $this->validate($request,[
             'leveljabatan_id' => 'required',
-            'devisidepartement_id' => 'required',
             'direktorat_id' => 'required',
             'kode_jabatan' => 'required',
             'nama_jabatan' => 'required'
@@ -378,11 +372,41 @@ class EofficeController extends Controller
 
     public function form_pegawai(){
         $pegawai = pegawai::all();
-        $dir = direktorat::all();
+        $dir = direktorat::all()->pluck("nama_direktorat","id");
         $departemen = departemen::all();
         $jabatan = jabatan::all();
 
         return view('content.pegawai.form_pegawai', ['pegawai' => $pegawai, 'dir' => $dir, 'departemen' => $departemen, 'jabatan' => $jabatan]);
+    }
+
+    public function getdepartemenpegawai($id){
+        $departemen = departemen::all()->where("direktorat_id", $id)->pluck("kode_departemen", "id");
+
+        return json_encode($departemen);
+    }
+
+    public function insert_pegawai(Request $request){
+        $request -> validate([
+            'nik' => 'required',
+            'no_ktp' => 'required',
+            'nama_pegawai' => 'required',
+            'npwp' => 'required',
+            'jabatan_id' => 'required',
+            'direktorat_id' => 'required',
+            'devisidepartement_id' => 'required',
+        ]);
+
+        pegawai::create([
+            'nik' => $request->nik,
+            'no_ktp' => $request->no_ktp,
+            'nama_pegawai' => $request->nama_pegawai,
+            'npwp' => $request->npwp,
+            'jabatan_id' => $request->jabatan_id,
+            'direktorat_id' => $request->direktorat_id,
+            'devisidepartement_id' => $request->devisidepartement_id,
+        ]);
+        
+        return redirect()->route('pegawai');
     }
 
     public function editpegawai($id)
@@ -392,7 +416,7 @@ class EofficeController extends Controller
         $departemen = departemen::all();
         $dir = direktorat::all();
         
-        return view('content.jabatan.update_jabatan', ['jabatan' => $jabatan, 'pegawai' => $pegawai, 'departemen' => $departemen, 'dir' => $dir]);
+        return view('content.pegawai.update_pegawai', ['jabatan' => $jabatan, 'pegawai' => $pegawai, 'departemen' => $departemen, 'dir' => $dir]);
     }
 
     public function deletepegawai($id)
@@ -403,7 +427,30 @@ class EofficeController extends Controller
         return redirect()->route('pegawai');
     }
 
+    public function updatepegawai($id, Request $request)
+    {
+        $this->validate($request,[
+            'nik' => 'required',
+            'no_ktp' => 'required',
+            'nama_pegawai' => 'required',
+            'npwp' => 'required',
+            'jabatan_id' => 'required',
+            'direktorat_id' => 'required',
+            'devisidepartement_id' => 'required',
+        ]);
+    
+        $pegawai = pegawai::find($id);
+        $pegawai->nik = $request->nik;
+        $pegawai->no_ktp = $request->no_ktp;
+        $pegawai->nama_pegawai = $request->nama_pegawai;
+        $pegawai->npwp = $request->npwp;
+        $pegawai->jabatan_id = $request->jabatan_id;
+        $pegawai->direktorat_id = $request->direktorat_id;
+        $pegawai->devisidepartement_id = $request->devisidepartement_id;
+        $pegawai->save();
 
+        return redirect()->route('pegawai');
+    }
 
     //surat masuk
     public function surat_masuk()

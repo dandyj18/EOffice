@@ -26,13 +26,13 @@
                     </div>
                     @endif
                     <div class="basic-form">
-                        <form action="{{url('direktorat/update_jabatan' . $jabatan->id)}}" method="POST" enctype="multipart/form-data">
+                        <form action="{{url('/direktorat/update-jabatan/' . $jabatan->id)}}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <center>
                                 <div class="form-group col-md-8">
                                     <div class="mb-3">
                                         <select class="custom-select mr-sm-2" name="leveljabatan_id" required="required" aria-label="Default select example">
-                                            <option disabled value="{{ $jabatan->leveljabatan->id }}" selected>{{ $jabatan->leveljabatan->level_jabatan }}</option>
+                                            <option value="{{ $jabatan->leveljabatan->id }}" selected>{{ $jabatan->leveljabatan->level_jabatan }}</option>
 
                                             @foreach($level as $le)
                                                 <option value="{{ $le->id }}">{{ $le->level_jabatan }}</option>
@@ -41,7 +41,7 @@
                                     </div>
                                     <div class="mb-3">
                                         <select class="custom-select mr-sm-2" name="direktorat_id" required="required" aria-label="Default select example">
-                                            <option disabled value="{{ $jabatan->direktorat->id }}" selected>{{ $jabatan->direktorat->nama_direktorat }}</option>
+                                            <option value="{{ $jabatan->direktorat->id }}" selected>{{ $jabatan->direktorat->nama_direktorat }}</option>
 
                                             @foreach($dir as $di)
                                                 <option value="{{ $di->id }}">{{ $di->nama_direktorat }}</option>
@@ -50,7 +50,7 @@
                                     </div>
                                     <div class="mb-3">
                                         <select class="custom-select mr-sm-2" name="devisidepartement_id" required="required" aria-label="Default select example">
-                                            <option disabled value="{{ $jabatan->devisidepartement->id }}" selected>{{ $jabatan->devisidepartement->kode_departemen }}</option>
+                                            <option value="{{ $jabatan->devisidepartement->id }}" selected>{{ $jabatan->devisidepartement->kode_departemen }}</option>
 
                                             @foreach($departemen as $dd)
                                                 <option value="{{ $dd->id }}">{{ $dd->kode_departemen }}</option>

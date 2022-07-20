@@ -15,12 +15,12 @@ class CreatePegawaiTable extends Migration
     {
         Schema::create('pegawai', function (Blueprint $table) {
             $table->id();
-            $table->integer('nik');
-            $table->integer('no_ktp');
+            $table->biginteger('nik');
+            $table->biginteger('no_ktp');
             $table->string('nama_pegawai');
-            $table->integer('npwp');
+            $table->biginteger('npwp');
             $table->integer('jabatan_id');
-            $table->integer('direktoran_id');
+            $table->integer('direktorat_id');
             $table->integer('devisidepartement_id');
             $table->timestamps();
         });
