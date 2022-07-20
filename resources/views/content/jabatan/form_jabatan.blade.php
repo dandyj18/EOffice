@@ -40,21 +40,16 @@
                                         </select>
                                     </div>
                                     <div class="mb-3">
-                                        <select class="custom-select mr-sm-2" name="devisidepartement_id" required="required" aria-label="Default select example">
-                                            <option disabled selected>Pilih Devisi Departemen</option>
-
-                                            @foreach($departemen as $dd)
-                                                <option value="{{ $dd->id }}">{{ $dd->kode_departemen }}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                    <div class="mb-3">
-                                        <select class="custom-select mr-sm-2" name="direktorat_id" required="required" aria-label="Default select example">
+                                        <select class="custom-select mr-sm-2" name="direktorat_id" id="direktorat_id" required="required" aria-label="Default select example">
                                             <option disabled selected>Pilih Direktorat</option>
 
                                             @foreach($dir as $di)
                                                 <option value="{{ $di->id }}">{{ $di->nama_direktorat }}</option>
                                             @endforeach
+                                        </select>
+                                    </div>
+                                    <div class="mb-3">
+                                        <select class="custom-select mr-sm-2" name="devisidepartement_id" id="devisidepartement_id" required="required" aria-label="Default select example">
                                         </select>
                                     </div>
                                     <div class="mb-3">
@@ -78,4 +73,21 @@
         </div>
     </div>
 </div>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#di').on('change', function(){
+            var dirID = $(this).val;
+            $.ajax({
+                type:'get',
+                url:'{{route('getdepartemen')}}?direktorat_id=' +dirID,
+                success: function (res){
+                    $('#departemen').append('<option>Pilih Departemen</option>');
+                    $.each(res, function(key,value){
+                        $('#departemen').append('<option value="' +value.id+ '">' +value.kode_departemen+ '</option>');
+                    });
+                }
+            });
+        });
+    });
+</script>
 @endsection

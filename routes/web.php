@@ -45,6 +45,7 @@ Route::post('/insert-jabatan', [App\Http\Controllers\EofficeController::class, '
 Route::get('/jabatan/delete-jabatan/{id}', [App\Http\Controllers\EofficeController::class, 'deletejabatan']);
 Route::get('/jabatan/edit-jabatan/{id}', [App\Http\Controllers\EofficeController::class, 'editjabatan']);
 Route::post('/jabatan/update-jabatan/{id}', [App\Http\Controllers\EofficeController::class, 'updatejabatan']);
+Route::get('/jabatan/getdepartemen', [App\Http\Controllers\EofficeController::class, 'getdepartemen'])->name('getdepartemen');
 
 
 //jenis surat dan kategori surat

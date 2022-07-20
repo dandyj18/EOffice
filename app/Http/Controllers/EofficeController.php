@@ -241,6 +241,17 @@ class EofficeController extends Controller
         return view('content.jabatan.form_jabatan', ['level' => $level, 'dir' => $dir, 'departemen' => $departemen, 'jabatan' => $jabatan]);
     }
 
+    public function getdepartemen(Request $request){
+        /*$departemen = departemen::where("direktorat_id", $request->direktorat_id)->pluck('kode_departemen', 'id');
+
+        return response()->json($departemen);*/
+        abort_unless(\Gate::allows('departemen'), 401);
+
+        if(!$request->direktorat_id){
+
+        }
+    }
+
     public function insert_jabatan(Request $request){
         $request -> validate([
             'leveljabatan_id' => 'required',
