@@ -108,7 +108,7 @@ $(function(){
         
         var value = $(this).val();
         if(value == "1"){
-        $(".departemen-form").show();
+            $(".departemen-form").show();
         }
     });
     hidestuff();
