@@ -17,6 +17,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// Hafid
+
 Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', [App\Http\Controllers\EofficeController::class, 'dashboard'])->name('dashboard');
 
