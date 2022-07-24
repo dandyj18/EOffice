@@ -32,4 +32,9 @@ class jabatan extends Model
     {
         return $this->hasMany(pegawai::class);
     }
+
+    public function User()
+    {
+        return $this->hasMany(User::class);
+    }
 }

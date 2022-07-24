@@ -23,6 +23,7 @@ class User extends Authenticatable
         'jabatan',
         'jenis_kelamin',
         'alamat',
+        'role_id',
         'password',
     ];
 
@@ -44,4 +45,16 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function Role(){
+
+        return $this->belongTo(Role::class);
+
+    }
+
+    public function jabatan(){
+
+        return $this->belongTo(jabatan::class);
+
+    }
 }

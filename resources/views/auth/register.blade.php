@@ -10,7 +10,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="{{asset('../../../assets/images/favicon.png')}}">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     <link href="{{asset('asset/css/style.css')}}" rel="stylesheet">
-    
+    <script src="asset/jquery/jquery-3.6.0.js"></script>
 </head>
 
 <body class="h-100">
@@ -70,6 +70,31 @@
                                         @enderror
                                     </div>
                                     <div class="form-group">
+                                        <input type="password" id="password_confirmation" name="password_confirmation" class="form-control @error('password_confirmation') is-invalid @enderror" placeholder="Password Confirmation" required>
+                                        @error('password_confirmation')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
+                                    </div>
+                                    <div class="mb-3">
+                                        <select class="custom-select mr-sm-2" name="role_id" id="role_id" required="required" aria-label="Default select example" >
+                                            <option disabled selected>Pilih Role</option>
+
+                                            @foreach($role as $key => $value)
+                                                @if($key == 1)
+                                                    @continue
+                                                @endif
+                                                <option value="{{ $key }}">{{ $value }}</option>
+                                            @endforeach
+                                        </select>
+                                        @error('role_id')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
+                                    </div>
+                                    <div class="jabatan-form form-group">
                                         <input type="text" id="jabatan" name="jabatan" class="form-control @error('jabatan') is-invalid @enderror"  placeholder="Jabatan" required value="{{ old('jabatan')}}">
                                         @error('jabatan')
                                             <div class="invalid-feedback">
@@ -77,7 +102,7 @@
                                             </div>
                                         @enderror
                                     </div>
-                                    <div class="form-group">
+                                    <div class="jk-form">
                                         <label for="jenis_kelamin">
                                             Jenis Kelamin
                                         </label>
@@ -119,7 +144,25 @@
             </div>
         </div>
     </div>
-
+    <script>
+        $(function(){
+            var hidestuff = function(){
+                $(".jabatan-form").hide();
+                $(".jk-form").hide();
+            }   
+            
+            $("select[name='role_id']").change(function(){
+                hidestuff();
+                
+                var value = $(this).val();
+                if(value == "3"){
+                    $(".jabatan-form").show();
+                    $(".jk-form").show();
+                }
+            });
+            hidestuff();
+        });
+    </script>
     
 
     

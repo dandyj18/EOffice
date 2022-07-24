@@ -20,6 +20,7 @@ class UserSeeder extends Seeder
             'email'=>'hafidmuhamad204@gmail.com',
             'jabatan'=>'ketua',
             'jenis_kelamin'=>'laki-laki',
+            'role_id'=>'1',
             'alamat'=>'majalaya',
             'password'=>Hash::make('admin'),
         ]);
