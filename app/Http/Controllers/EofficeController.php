@@ -140,37 +140,27 @@ class EofficeController extends Controller
 
 
 
-    //jenis surat dan kategori
-    public function form_kategori(){
+    //kategori
+    public function kategori(){
+        $kategori = kategori::all();
         
-        return view('content.kategori dan jenis surat.form_kategori');
+        return view('content.kategori_surat.kategori_surat', ['kategori' => $kategori]);
     }
 
-    public function insert_kategori(Request $request){
-        $request -> validate([
-            'no_kategori' => 'required',
-            'nama_kategori' => 'required'
-        ]);
-        
-        
-        $kategori = kategori::create([
-            'no_kategori' => $request->no_kategori,
-            'nama_kategori' => $request->nama_kategori
-        ]);
 
-        return redirect()->route('jenis');
-    }
+
+    //Jenis Surat
 
     public function jenis_surat(){
         $jenis = jenis_surat::all();
 
-        return view('content.kategori dan jenis surat.jenis_surat', ['jenis' => $jenis]);
+        return view('content.jenis_surat.jenis_surat', ['jenis' => $jenis]);
     }
 
     public function form_jenissurat(){
         $kategori = kategori::all();
 
-        return view('content.kategori dan jenis surat.form_jenissurat', ['kategori' => $kategori]);
+        return view('content.jenis_surat.form_jenissurat', ['kategori' => $kategori]);
     }
 
     public function insert_jenissurat(Request $request){
@@ -203,7 +193,7 @@ class EofficeController extends Controller
         $jenis = jenis_surat::find($id);
         $kategori = kategori::all();
         
-        return view('content.kategori dan jenis surat.update_jenissurat', ['jenis' => $jenis, 'kategori' => $kategori]);
+        return view('content.jenis_surat.update_jenissurat', ['jenis' => $jenis, 'kategori' => $kategori]);
     }
 
     public function updatjenis($id, Request $request)

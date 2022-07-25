@@ -29,12 +29,14 @@
                     <i class="icon-note menu-icon"></i><span class="nav-text">Data</span>
                 </a>
                 <ul aria-expanded="false">
+                    <li><a href="{{route('kategori')}}">Kategori Surat</a></li>
                     <li><a href="{{route('jenis')}}">Jenis Surat</a></li>
                     <li><a href="{{route('direktorat')}}">Direktorat</a></li>
-                    <li><a href="{{route('departemen')}}">Devisi Departemen</a></li>
-                    <li><a href="{{route('pegawai')}}">Pegawai</a></li>
-                    <li><a href="{{route('jabatan')}}">Jabatan</a></li>
+                    <li><a href="">Devisi</a></li>
+                    <li><a href="{{route('departemen')}}">Departemen</a></li>
+                    <li><a href="">Seksi</a></li>
                     <li><a href="{{route('level')}}">Level Jabatan</a></li>
+                    <li><a href="{{route('pegawai')}}">Pegawai</a></li>
                 </ul>
             </li>
         </ul>

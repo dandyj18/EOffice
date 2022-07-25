@@ -9,7 +9,7 @@ class departemen extends Model
 {
     use HasFactory;
 
-    protected $table = "departement";
+    protected $table = "departemen";
 
     protected $fillable = ['id','direktorat_id','devisi_id','kode_departemen','nama_departemen'];
 
@@ -18,13 +18,13 @@ class departemen extends Model
         return $this->belongsto(direktorat::class);
     }
 
-    public function jabatan()
+    public function devisi()
     {
-        return $this->hasMany(jabatan::class);
+        return $this->belongTo(Devisi::class);
     }
 
-    public function pegawai()
+    public function seksi()
     {
-        return $this->hasMany(pegawai::class);
+        return $this->hasMany(Seksi::class);
     }
 }

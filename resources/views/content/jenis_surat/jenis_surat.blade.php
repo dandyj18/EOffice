@@ -19,7 +19,6 @@
                     <div class="card-title">
                         <h4>Jenis Surat</h4>
                         <a class="btn btn-primary btn-sm" href="{{route('form_jenissurat')}}" role="button">+ Data Jenis Surat</a>
-                        <a class="btn btn-primary btn-sm" href="{{route('form_kategori')}}" role="button">+ Data Kategori Surat</a>
                     </div>
                     <div class="table-responsive">
                         <table class="table table-striped table-bordered zero-configuration">

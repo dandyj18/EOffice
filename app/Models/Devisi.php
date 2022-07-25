@@ -12,4 +12,9 @@ class Devisi extends Model
     protected $table = "devisi";
 
     protected $fillable = ['id','direktorat_id','kode_devisi','nama_devisi'];
+
+    public function direktorat()
+    {
+        return $this->belongsto(direktorat::class);
+    }
 }

@@ -18,8 +18,9 @@ Route::get('/', function () {
 });
 /*
 Route::middleware(['auth'])->group(function () {
-    Route::get('/dashboard', [App\Http\Controllers\EofficeController::class, 'dashboard'])->name('dashboard');
 */
+    Route::get('/dashboard', [App\Http\Controllers\EofficeController::class, 'dashboard'])->name('dashboard');
+
     //departemen
     Route::get('/departemen', [App\Http\Controllers\EofficeController::class, 'departemen'])->name('departemen');
     Route::get('/form-departemen', [App\Http\Controllers\EofficeController::class, 'form_departemen'])->name('form_departemen');
@@ -48,7 +49,11 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/jabatan/getdepartemen/{id}', [App\Http\Controllers\EofficeController::class, 'getdepartemen'])->name('getdepartemen');
 
 
-    //jenis surat dan kategori surat
+    //kategori
+    Route::get('/kategori-surat', [App\Http\Controllers\EofficeController::class, 'kategori'])->name('kategori');
+
+
+    //jenis surat
     Route::get('/jenis-surat', [App\Http\Controllers\EofficeController::class, 'jenis_surat'])->name('jenis');
     Route::get('/form-jenissurat', [App\Http\Controllers\EofficeController::class, 'form_jenissurat'])->name('form_jenissurat');
     Route::post('/insert-jenissurat', [App\Http\Controllers\EofficeController::class, 'insert_jenissurat'])->name('insert_jenissurat');

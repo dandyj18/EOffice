@@ -18,13 +18,13 @@ class direktorat extends Model
         return $this->hasMany(departemen::class);
     }
 
-    public function jabatan()
+    public function devisi()
     {
-        return $this->hasMany(jabatan::class);
+        return $this->hasMany(Devisi::class);
     }
 
-    public function pegawai()
+    public function seksi()
     {
-        return $this->hasMany(pegawai::class);
+        return $this->hasMany(Seksi::class);
     }
 }

@@ -39,13 +39,13 @@
                                             @endforeach
                                         </select>
                                     </div>
-                                    <div class="mb-3">
+                                    <div class="form-group mb-3">
                                         <input type="text" class="form-control input-Default" name="nama_jenis" required="required" placeholder="Nama Jenis Surat">
                                     </div>
-                                    <div class="mb-3">
+                                    <div class="form-group mb-3">
                                         <input type="text" class="form-control input-Default" name="kode_jenis" required="required" placeholder="Kode">
                                     </div>
-                                    <div class="mb-3">
+                                    <div class="form-group mb-3">
                                         <span>
                                             <input class="btn btn-primary" type="submit" value="Submit" onClick="return confirm('Apakah data yang dimasukkan sudah benar ?')">
                                             <a class="btn btn-success text-white" href="{{route('jenis')}}" role="button">Kembali</a>
