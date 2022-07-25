@@ -32,9 +32,9 @@
                     <li><a href="{{route('kategori')}}">Kategori Surat</a></li>
                     <li><a href="{{route('jenis')}}">Jenis Surat</a></li>
                     <li><a href="{{route('direktorat')}}">Direktorat</a></li>
-                    <li><a href="">Devisi</a></li>
+                    <li><a href="{{route('devisi')}}">Devisi</a></li>
                     <li><a href="{{route('departemen')}}">Departemen</a></li>
-                    <li><a href="">Seksi</a></li>
+                    <li><a href="{{route('seksi')}}">Seksi</a></li>
                     <li><a href="{{route('level')}}">Level Jabatan</a></li>
                     <li><a href="{{route('pegawai')}}">Pegawai</a></li>
                 </ul>

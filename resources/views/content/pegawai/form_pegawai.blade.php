@@ -43,11 +43,11 @@
                                         <input type="text" class="form-control input-Default" name="npwp" required="required" placeholder="NPWP">
                                     </div>
                                     <div class="mb-3">
-                                        <select class="custom-select mr-sm-2" name="jabatan_id" required="required" aria-label="Default select example">
-                                            <option disabled selected>Pilih Jabatan</option>
+                                        <select class="custom-select mr-sm-2" name="leveljabatan_id" required="required" aria-label="Default select example">
+                                            <option disabled selected>Pilih Level Jabatan</option>
 
-                                            @foreach($jabatan as $j)
-                                                <option value="{{ $j->id }}">{{ $j->jabatan }}</option>
+                                            @foreach($level as $l)
+                                                <option value="{{ $l->id }}">{{ $l->level_jabatan }}</option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -60,9 +60,19 @@
                                             @endforeach
                                         </select>
                                     </div>
-                                    <div class="mb-3">
-                                        <select class="custom-select mr-sm-2" name="devisidepartement_id" id="devisidepartement_id" required="required" aria-label="Default select example">
-                                            <option disabled selected>Pilih Devisi Departemen</option>
+                                    <div class="devisi-form mb-3">
+                                        <select class="custom-select mr-sm-2" name="devisi_id" id="devisi_id" required="required" aria-label="Default select example">
+                                            <option disabled selected>Pilih Devisi</option>
+                                        </select>
+                                    </div>
+                                    <div class="departemen-form mb-3">
+                                        <select class="custom-select mr-sm-2" name="departemen_id" id="departemen_id" required="required" aria-label="Default select example">
+                                            <option disabled selected>Pilih Departemen</option>
+                                        </select>
+                                    </div>
+                                    <div class="seksi-form mb-3">
+                                        <select class="custom-select mr-sm-2" name="seksi_id" id="seksi_id" required="required" aria-label="Default select example">
+                                            <option disabled selected>Pilih Seksi</option>
                                         </select>
                                     </div>
                                     <div class="mb-3">
@@ -82,25 +92,98 @@
 </div>
 <script type="text/javascript">
     $(document).ready(function(){
-         $('#direktorat_id').on('change',function(){
+        $('#direktorat_id').on('change',function(){
              var dirID = $(this).val();
              if(dirID){
                  $.ajax({
-                     url : 'pegawai/getdepartemenpegawai/'+dirID,
+                     url : 'pegawai/getdevisi/'+dirID,
                      type : "GET",
                      dataType : "json",
                      success: function(data){
-                         console.log(data);
-                         $('#devisidepartement_id').empty();
-                         $.each(data, function(key, value){
-                             $('#devisidepartement_id').append('<option value="'+ key +'">'+ value +'</option>');
-                         });
+                        console.log(data);
+                        $('#devisi_id').empty();
+                        $('#departemen_id').empty();
+                        $('#seksi_id').empty();
+                        $.each(data, function(key, value){
+                            $('#devisi_id').append('<option value="'+ key +'">'+ value +'</option>');
+                        });
                      }
                  });
-             }else{
-                 $('#devisidepartement_id').empty();
-             }
+            }else{
+                $('#devisi_id').empty();
+                $('#departemen_id').empty();
+                $('#seksi_id').empty();
+            }
+         });
+        $('#devisi_id').on('change',function(){
+             var devisiID = $(this).val();
+             if(devisiID){
+                 $.ajax({
+                     url : 'pegawai/getdepartemen/'+devisiID,
+                     type : "GET",
+                     dataType : "json",
+                     success: function(data){
+                        console.log(data);
+                        $('#departemen_id').empty();
+                        $('#seksi_id').empty();
+                        $.each(data, function(key, value){
+                            $('#departemen_id').append('<option value="'+ key +'">'+ value +'</option>');
+                        });
+                     }
+                 });
+            }else{
+                 $('#departemen_id').empty();
+                 $('#seksi_id').empty();
+            }
+         });
+
+        $('#departemen_id').on('change',function(){
+             var departemenID = $(this).val();
+             if(departemenID){
+                 $.ajax({
+                     url : 'pegawai/getseksi/'+departemenID,
+                     type : "GET",
+                     dataType : "json",
+                     success: function(data){
+                        console.log(data);
+                        $('#seksi_id').empty();
+                        $.each(data, function(key, value){
+                            $('#seksi_id').append('<option value="'+ key +'">'+ value +'</option>');
+                        });
+                     }
+                 });
+            }else{
+                 $('#seksi_id').empty();
+            }
          });
     });
+
+$(function(){
+    var hidestuff = function(){
+        $(".devisi-form").hide();
+        $(".departemen-form").hide();
+        $(".seksi-form").hide();
+    }
+    
+    $("select[name='leveljabatan_id']").change(function(){
+        hidestuff();
+        
+        var value = $(this).val();
+        if(value == "2"){
+            $(".devisi-form").show();
+        }
+        if(value == "3"){
+            $(".devisi-form").show();
+            $(".departemen-form").show();
+        }
+        if(value == "4"){
+            $(".devisi-form").show();
+            $(".departemen-form").show();
+            $(".seksi-form").show();
+        }
+    });
+    hidestuff();
+});
+
  </script>
 @endsection

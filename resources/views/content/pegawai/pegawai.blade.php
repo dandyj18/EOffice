@@ -29,9 +29,11 @@
                                     <th class="text-center">No KTP</th>
                                     <th class="text-center">Nama</th>
                                     <th class="text-center">NPWP</th>
-                                    <th class="text-center">Jabatan</th>
+                                    <th class="text-center">Level Jabatan</th>
                                     <th class="text-center">Direktorat</th>
+                                    <th class="text-center">Devisi</th>
                                     <th class="text-center">Departemen</th>
+                                    <th class="text-center">Seksi</th>
                                     <th class="text-center">Action</th>
                                 </tr>
                             </thead>
@@ -49,9 +51,11 @@
                                     <td>{{$p->no_ktp}}</td>
                                     <td>{{$p->nama_pegawai}}</td>
                                     <td>{{$p->npwp}}</td>
-                                    <td>{{$p->jabatan->jabatan}}</td>
+                                    <td>{{$p->leveljabatan->level_jabatan}}</td>
                                     <td>{{$p->direktorat->nama_direktorat}}</td>
-                                    <td>{{$p->devisidepartement->kode_departemen}}</td>
+                                    <td>{{$p->devisi->nama_devisi}}</td>
+                                    <td>{{$p->departemen->nama_departemen}}</td>
+                                    <td>{{$p->seksi->nama_seksi}}</td>
                                     <td class="text-center">
                                         <span style="float right">     
                                             <a class="btn btn-warning btn-sm" href="/pegawai/edit-pegawai/{{$p->id}}" type="button"><img src="{{asset('asset/edit1.png')}}"/></a>

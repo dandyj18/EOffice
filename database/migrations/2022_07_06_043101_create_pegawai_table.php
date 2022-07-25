@@ -21,9 +21,9 @@ class CreatePegawaiTable extends Migration
             $table->biginteger('npwp');
             $table->integer('leveljabatan_id');
             $table->integer('direktorat_id');
-            $table->integer('devisi_id');
-            $table->integer('departement_id');
-            $table->integer('seksi_id');
+            $table->integer('devisi_id')->nullable();
+            $table->integer('departemen_id')->nullable();
+            $table->integer('seksi_id')->nullable();
             $table->timestamps();
         });
     }

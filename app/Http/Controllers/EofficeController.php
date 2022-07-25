@@ -6,10 +6,11 @@ use Illuminate\Http\Request;
 use App\Models\direktorat;
 use App\Models\departemen;
 use App\Models\jenis_surat;
-use App\Models\jabatan;
+use App\Models\Seksi;
 use App\Models\level_jabatan;
 use App\Models\pegawai;
 use App\Models\kategori;
+use App\Models\Devisi;
 
 class EofficeController extends Controller
 {
@@ -79,6 +80,68 @@ class EofficeController extends Controller
     }
 
 
+    //devisi
+    public function devisi(){
+        $devisi = Devisi::all();
+
+        return view('content.devisi.devisi', ['devisi' => $devisi]);
+    }
+
+    public function form_devisi(){
+        $dir = direktorat::all();
+
+        return view('content.devisi.form_devisi', ['dir' => $dir]);
+    }
+
+    public function insert_devisi(Request $request){
+        $request -> validate([
+            'direktorat_id' => 'required',
+            'kode_devisi' => 'required',
+            'nama_devisi' => 'required',
+        ]);
+        
+        
+        $devisi = Devisi::create([
+            'direktorat_id' => $request->direktorat_id,
+            'kode_devisi' => $request->kode_devisi,
+            'nama_devisi' => $request->nama_devisi,
+        ]);
+
+        return redirect()->route('devisi');
+    }
+
+    public function deletedevisi($id)
+    {
+        $devisi = Devisi::findOrFail($id);
+
+        $devisi->delete();
+        return redirect()->route('devisi');
+    }
+
+    public function editdevisi($id)
+    {
+        $devisi = Devisi::find($id);
+        $dir = direktorat::all();
+
+        return view('content.devisi.update_devisi', ['devisi' => $devisi, 'dir' => $dir]);
+    }
+
+    public function updatedevisi($id, Request $request)
+    {
+        $this->validate($request,[
+            'direktorat_id' => 'required',
+            'kode_devisi' => 'required',
+            'nama_devisi' => 'required',
+        ]);
+    
+        $devisi = Devisi::find($id);
+        $devisi->direktorat_id = $request->direktorat_id;
+        $devisi->kode_devisi = $request->kode_devisi;
+        $devisi->nama_devisi = $request->nama_devisi;
+        $devisi->save();
+        return redirect()->route('devisi');
+    }
+
 
     //departemen
     public function departemen(){
@@ -89,20 +152,25 @@ class EofficeController extends Controller
 
     public function form_departemen(){
         $dir = direktorat::all();
+        $devisi = Devisi::all();
 
-        return view('content.departemen.form_departemen', ['dir' => $dir]);
+        return view('content.departemen.form_departemen', ['dir' => $dir, 'devisi' => $devisi]);
     }
 
     public function insert_depar(Request $request){
         $request -> validate([
+            'direktorat_id' => 'required',
+            'devisi_id' => 'required',
             'kode_departemen' => 'required',
-            'direktorat_id' => 'required'
+            'nama_departemen' => 'required',
         ]);
         
         
         $departemen = departemen::create([
+            'direktorat_id' => $request->direktorat_id,
+            'devisi_id' => $request->devisi_id,
             'kode_departemen' => $request->kode_departemen,
-            'direktorat_id' => $request->direktorat_id
+            'nama_departemen' => $request->nama_departemen,
         ]);
 
         return redirect()->route('departemen');
@@ -111,6 +179,8 @@ class EofficeController extends Controller
     public function deletedepartemen($id)
     {
         $departemen = departemen::findOrFail($id);
+        $dir = direktorat::all();
+        $devisi = Devisi::all();
 
         $departemen->delete();
         return redirect()->route('departemen');
@@ -120,22 +190,102 @@ class EofficeController extends Controller
     {
         $departemen = departemen::find($id);
         $dir = direktorat::all();
+        $devisi = Devisi::all();
 
-        return view('content.departemen.update_departemen', ['departemen' => $departemen, 'dir' => $dir]);
+        return view('content.departemen.update_departemen', ['departemen' => $departemen, 'dir' => $dir, 'devisi' => $devisi]);
     }
     
-    public function updatdepartemen($id, Request $request)
+    public function updatedepartemen($id, Request $request)
     {
         $this->validate($request,[
+            'direktorat_id' => 'required',
+            'devisi_id' => 'required',
             'kode_departemen' => 'required',
-            'direktorat_id' => 'required'
+            'nama_departemen' => 'required',
         ]);
     
         $departemen = departemen::find($id);
-        $departemen->kode_departemen = $request->kode_departemen;
         $departemen->direktorat_id = $request->direktorat_id;
+        $departemen->devisi_id = $request->devisi_id;
+        $departemen->kode_departemen = $request->kode_departemen;
+        $departemen->nama_departemen = $request->nama_departemen;
         $departemen->save();
-        return redirect()->route('depatemen');
+        return redirect()->route('departemen');
+    }
+
+
+    //seksi
+    public function seksi(){
+        $seksi = Seksi::all();
+
+        return view('content.seksi.seksi', ['seksi' => $seksi]);
+    }
+
+    public function form_seksi(){
+        $dir = direktorat::all();
+        $devisi = Devisi::all();
+        $departemen = departemen::all();
+
+        return view('content.seksi.form_seksi', ['dir' => $dir, 'devisi' => $devisi, 'departemen' => $departemen ]);
+    }
+
+    public function insert_seksi(Request $request){
+        $request -> validate([
+            'direktorat_id' => 'required',
+            'devisi_id' => 'required',
+            'departemen_id' => 'required',
+            'kode_seksi' => 'required',
+            'nama_seksi' => 'required',
+        ]);
+        
+        
+        $seksi = Seksi::create([
+            'direktorat_id' => $request->direktorat_id,
+            'devisi_id' => $request->devisi_id,
+            'departemen_id' => $request->departemen_id,
+            'kode_seksi' => $request->kode_seksi,
+            'nama_seksi' => $request->nama_seksi,
+        ]);
+
+        return redirect()->route('seksi');
+    }
+
+    public function deleteseksi($id)
+    {
+        $seksi = Seksi::findOrFail($id);
+
+        $seksi->delete();
+        return redirect()->route('seksi');
+    }
+
+    public function editseksi($id)
+    {
+        $seksi = Seksi::find($id);
+        $dir = direktorat::all();
+        $devisi = Devisi::all();
+        $departemen = departemen::all();
+
+        return view('content.seksi.update_seksi', ['seksi' => $seksi, 'devisi' => $devisi, 'dir' => $dir, 'departemen' => $departemen]);
+    }
+
+    public function updateseksi($id, Request $request)
+    {
+        $this->validate($request,[
+            'direktorat_id' => 'required',
+            'devisi_id' => 'required',
+            'departemen_id' => 'required',
+            'kode_seksi' => 'required',
+            'nama_seksi' => 'required',
+        ]);
+    
+        $seksi = Seksi::find($id);
+        $seksi->direktorat_id = $request->direktorat_id;
+        $seksi->devisi_id = $request->devisi_id;
+        $seksi->departemen_id = $request->departemen_id;
+        $seksi->kode_seksi = $request->kode_seksi;
+        $seksi->nama_seksi = $request->nama_seksi;
+        $seksi->save();
+        return redirect()->route('seksi');
     }
 
 
@@ -231,11 +381,6 @@ class EofficeController extends Controller
         return view('content.jabatan.form_jabatan', ['level' => $level, 'dir' => $dir, 'departemen' => $departemen, 'jabatan' => $jabatan]);
     }
 
-    public function getdepartemen($id){
-        $departemen = departemen::all()->where("direktorat_id", $id)->pluck("kode_departemen", "id");
-
-        return json_encode($departemen);
-    }
 
     public function insert_jabatan(Request $request){
         $request -> validate([
@@ -363,16 +508,30 @@ class EofficeController extends Controller
     public function form_pegawai(){
         $pegawai = pegawai::all();
         $dir = direktorat::all()->pluck("nama_direktorat","id");
-        $departemen = departemen::all();
-        $jabatan = jabatan::all();
+        $level = level_jabatan::all();
+        $departemen = departemen::all()->pluck("nama_departemen","id");
+        $devisi = Devisi::all()->pluck("nama_devisi","id");
+        $seksi = Seksi::all()->pluck("nama_seksi","id");
 
-        return view('content.pegawai.form_pegawai', ['pegawai' => $pegawai, 'dir' => $dir, 'departemen' => $departemen, 'jabatan' => $jabatan]);
+        return view('content.pegawai.form_pegawai', ['pegawai' => $pegawai, 'level' => $level, 'dir' => $dir, 'departemen' => $departemen, 'devisi' => $devisi, 'seksi' => $seksi]);
     }
 
-    public function getdepartemenpegawai($id){
-        $departemen = departemen::all()->where("direktorat_id", $id)->pluck("kode_departemen", "id");
+    public function getdevisi($id){
+        $devisi = Devisi::all()->where("direktorat_id", $id)->pluck("nama_devisi", "id");
+
+        return json_encode($devisi);
+    }
+
+    public function getdepartemen($id){
+        $departemen = departemen::all()->where("devisi_id", $id)->pluck("nama_departemen", "id");
 
         return json_encode($departemen);
+    }
+
+    public function getseksi($id){
+        $seksi = Seksi::all()->where("departemen_id", $id)->pluck("nama_seksi", "id");
+
+        return json_encode($seksi);
     }
 
     public function insert_pegawai(Request $request){
@@ -381,9 +540,8 @@ class EofficeController extends Controller
             'no_ktp' => 'required',
             'nama_pegawai' => 'required',
             'npwp' => 'required',
-            'jabatan_id' => 'required',
-            'direktorat_id' => 'required',
-            'devisidepartement_id' => 'required',
+            'leveljabatan_id' => 'required',
+            'direktorat_id' => 'required'
         ]);
 
         pegawai::create([
@@ -391,9 +549,11 @@ class EofficeController extends Controller
             'no_ktp' => $request->no_ktp,
             'nama_pegawai' => $request->nama_pegawai,
             'npwp' => $request->npwp,
-            'jabatan_id' => $request->jabatan_id,
+            'leveljabatan_id' => $request->leveljabatan_id,
             'direktorat_id' => $request->direktorat_id,
-            'devisidepartement_id' => $request->devisidepartement_id,
+            'devisi_id' => $request->devisi_id,
+            'departemen_id' => $request->departemen_id,
+            'seksi_id' => $request->seksi_id
         ]);
         
         return redirect()->route('pegawai');
@@ -402,11 +562,13 @@ class EofficeController extends Controller
     public function editpegawai($id)
     {
         $pegawai = pegawai::find($id);
-        $jabatan = jabatan::all();
+        $level = level_jabatan::all();
         $departemen = departemen::all();
         $dir = direktorat::all();
+        $seksi = Seksi::all();
+        $devisi = Devisi::all();
         
-        return view('content.pegawai.update_pegawai', ['jabatan' => $jabatan, 'pegawai' => $pegawai, 'departemen' => $departemen, 'dir' => $dir]);
+        return view('content.pegawai.update_pegawai', ['level' => $level, 'pegawai' => $pegawai, 'departemen' => $departemen, 'dir' => $dir, 'seksi' => $seksi, 'devisi' => $devisi]);
     }
 
     public function deletepegawai($id)
@@ -424,9 +586,11 @@ class EofficeController extends Controller
             'no_ktp' => 'required',
             'nama_pegawai' => 'required',
             'npwp' => 'required',
-            'jabatan_id' => 'required',
+            'leveljabatan_id' => 'required',
             'direktorat_id' => 'required',
-            'devisidepartement_id' => 'required',
+            'devisi_id' => 'required',
+            'dedepartemen_id' => 'required',
+            'seksi_id' => 'required'
         ]);
     
         $pegawai = pegawai::find($id);
@@ -434,9 +598,11 @@ class EofficeController extends Controller
         $pegawai->no_ktp = $request->no_ktp;
         $pegawai->nama_pegawai = $request->nama_pegawai;
         $pegawai->npwp = $request->npwp;
-        $pegawai->jabatan_id = $request->jabatan_id;
+        $pegawai->leveljabatan_id = $request->leveljabatan_id;
         $pegawai->direktorat_id = $request->direktorat_id;
-        $pegawai->devisidepartement_id = $request->devisidepartement_id;
+        $pegawai->devisi_id = $request->devisi_id;
+        $pegawai->departemen_id = $request->depertemen_id;
+        $pegawai->seksi_id = $request->seksi_id;
         $pegawai->save();
 
         return redirect()->route('pegawai');

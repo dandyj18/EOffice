@@ -15,6 +15,16 @@ class Devisi extends Model
 
     public function direktorat()
     {
-        return $this->belongsto(direktorat::class);
+        return $this->belongsTo(direktorat::class);
+    }
+
+    public function seksi()
+    {
+        return $this->hasMany(Seksi::class);
+    }
+
+    public function departemen()
+    {
+        return $this->hasMany(departemen::class);
     }
 }

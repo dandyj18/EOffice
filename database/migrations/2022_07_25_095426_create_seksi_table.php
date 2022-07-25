@@ -19,7 +19,7 @@ class CreateSeksiTable extends Migration
             $table->integer('devisi_id');
             $table->integer('departemen_id');
             $table->integer('kode_seksi');
-            $table->string('nama_string');
+            $table->string('nama_seksi');
             $table->timestamps();
         });
     }

@@ -15,12 +15,12 @@ class departemen extends Model
 
     public function direktorat()
     {
-        return $this->belongsto(direktorat::class);
+        return $this->belongsTo(direktorat::class);
     }
 
     public function devisi()
     {
-        return $this->belongTo(Devisi::class);
+        return $this->belongsTo(Devisi::class);
     }
 
     public function seksi()

@@ -17,7 +17,7 @@ class CreateDevisiTable extends Migration
             $table->id();
             $table->integer('direktorat_id');
             $table->integer('kode_devisi');
-            $table->string('nama_divisi');
+            $table->string('nama_devisi');
             $table->timestamps();
         });
     }

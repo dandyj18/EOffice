@@ -30,6 +30,15 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/departemen/update-departemen/{id}', [App\Http\Controllers\EofficeController::class, 'updatedepartemen']);
 
 
+    //devisi
+    Route::get('/devisi', [App\Http\Controllers\EofficeController::class, 'devisi'])->name('devisi');
+    Route::get('/form-devisi', [App\Http\Controllers\EofficeController::class, 'form_devisi'])->name('form_devisi');
+    Route::post('/insert-devisi', [App\Http\Controllers\EofficeController::class, 'insert_devisi'])->name('insert_devisi');
+    Route::get('/devisi/delete-devisi/{id}', [App\Http\Controllers\EofficeController::class, 'deletedevisi']);
+    Route::get('/devisi/edit-devisi/{id}', [App\Http\Controllers\EofficeController::class, 'editdevisi']);
+    Route::post('/devisi/update-devisi/{id}', [App\Http\Controllers\EofficeController::class, 'updatedevisi']);
+
+
     //direktorat
     Route::get('/direktorat', [App\Http\Controllers\EofficeController::class, 'direktorat'])->name('direktorat');
     Route::get('/direktorat/form-direktorat', [App\Http\Controllers\EofficeController::class, 'form_direktorat'])->name('form_direktorat');
@@ -37,6 +46,15 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/direktorat/delete-direktorat/{id}', [App\Http\Controllers\EofficeController::class, 'deletedirektorat']);
     Route::get('/direktorat/edit-direktorat/{id}', [App\Http\Controllers\EofficeController::class, 'editdirektorat']);
     Route::post('/direktorat/update-direktorat/{id}', [App\Http\Controllers\EofficeController::class, 'updatedirektorat']);
+
+
+    //seksi
+    Route::get('/seksi', [App\Http\Controllers\EofficeController::class, 'seksi'])->name('seksi');
+    Route::get('/form-seksi', [App\Http\Controllers\EofficeController::class, 'form_seksi'])->name('form_seksi');
+    Route::post('/insert-seksi', [App\Http\Controllers\EofficeController::class, 'insert_seksi'])->name('insert_seksi');
+    Route::get('/seksi/delete-seksi/{id}', [App\Http\Controllers\EofficeController::class, 'deleteseksi']);
+    Route::get('/seksi/edit-seksi/{id}', [App\Http\Controllers\EofficeController::class, 'editseksi']);
+    Route::post('/seksi/update-seksi/{id}', [App\Http\Controllers\EofficeController::class, 'updateseksi']);
 
 
     //jabatan
@@ -82,6 +100,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/pegawai/edit-pegawai/{id}', [App\Http\Controllers\EofficeController::class, 'editpegawai']);
     Route::get('/pegawai/delete-pegawai/{id}', [App\Http\Controllers\EofficeController::class, 'deletepegawai']);
     Route::post('/pegawai/update-pegawai/{id}', [App\Http\Controllers\EofficeController::class, 'updatepegawai']);
+    Route::get('/pegawai/getdevisi/{id}', [App\Http\Controllers\EofficeController::class, 'getdevisi'])->name('getdevisi');
+    Route::get('/pegawai/getdepartemen/{id}', [App\Http\Controllers\EofficeController::class, 'getdepartemen'])->name('getdepartemen');
+    Route::get('/pegawai/getseksi/{id}', [App\Http\Controllers\EofficeController::class, 'getseksi'])->name('getseksi');
 
 
 

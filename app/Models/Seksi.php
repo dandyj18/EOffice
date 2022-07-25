@@ -15,16 +15,16 @@ class Seksi extends Model
 
     public function direktorat()
     {
-        return $this->belongsto(direktorat::class);
+        return $this->belongsTo(direktorat::class);
     }
 
     public function devisi()
     {
-        return $this->belongsto(Devisi::class);
+        return $this->belongsTo(Devisi::class);
     }
 
     public function departemen()
     {
-        return $this->belongsto(departemen::class);
+        return $this->belongsTo(departemen::class);
     }
 }
