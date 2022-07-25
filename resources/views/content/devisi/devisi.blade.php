@@ -25,11 +25,9 @@
                             <thead>
                                 <tr>
                                     <th class="text-center">#</th>
-                                    <th class="text-center">Level Jabatan</th>
-                                    <th class="text-center">Direktorat</th>
-                                    <th class="text-center">Departemen</th>
-                                    <th class="text-center">Kode Jabatan</th>
-                                    <th class="text-center">Jabatan</th>
+                                    <th class="text-center">Nama Direktorat</th>
+                                    <th class="text-center">Kode Devisi</th>
+                                    <th class="text-center">Devisi</th>
                                     <th class="text-center">Action</th>
                                 </tr>
                             </thead>

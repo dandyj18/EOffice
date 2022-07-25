@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDevisidepartementTable extends Migration
+class CreateSeksiTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,13 @@ class CreateDevisidepartementTable extends Migration
      */
     public function up()
     {
-        Schema::create('devisidepartement', function (Blueprint $table) {
+        Schema::create('seksi', function (Blueprint $table) {
             $table->id();
-            $table->integer('kode_departemen');
             $table->integer('direktorat_id');
+            $table->integer('devisi_id');
+            $table->integer('departemen_id');
+            $table->integer('kode_seksi');
+            $table->string('nama_string');
             $table->timestamps();
         });
     }
@@ -28,6 +31,6 @@ class CreateDevisidepartementTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('devisidepartement');
+        Schema::dropIfExists('seksi');
     }
 }

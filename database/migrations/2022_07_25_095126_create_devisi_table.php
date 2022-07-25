@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateJabatanTable extends Migration
+class CreateDevisiTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,11 @@ class CreateJabatanTable extends Migration
      */
     public function up()
     {
-        Schema::create('jabatan', function (Blueprint $table) {
+        Schema::create('devisi', function (Blueprint $table) {
             $table->id();
-            $table->integer('leveljabatan_id');
             $table->integer('direktorat_id');
-            $table->integer('devisidepartement_id');
-            $table->integer('kode_jabatan');
-            $table->string('jabatan');
+            $table->integer('kode_devisi');
+            $table->string('nama_divisi');
             $table->timestamps();
         });
     }
@@ -31,6 +29,6 @@ class CreateJabatanTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('jabatan');
+        Schema::dropIfExists('devisi');
     }
 }

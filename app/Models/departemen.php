@@ -9,9 +9,9 @@ class departemen extends Model
 {
     use HasFactory;
 
-    protected $table = "devisidepartement";
+    protected $table = "departement";
 
-    protected $fillable = ['id', 'kode_departemen', 'direktorat_id'];
+    protected $fillable = ['id','direktorat_id','devisi_id','kode_departemen','nama_departemen'];
 
     public function direktorat()
     {

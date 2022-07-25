@@ -7,7 +7,7 @@
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a >Data</a></li>
             <li class="breadcrumb-item"><a href="{{route('departemen')}}">Devisi Departemen</a></li>
-            <li class="breadcrumb-item active"><a href="{{route('insert_departemen')}}">Insert Data Devisi Departemen</a></li>
+            <li class="breadcrumb-item active"><a href="{{route('insert_departemen')}}">Insert Data Departemen</a></li>
         </ol>
     </div>
 </div>
@@ -31,9 +31,6 @@
                             <center>
                             <div class="form-group col-md-8">
                                 <div class="mb-3">
-                                    <input type="text" class="form-control input-Default" name="kode_departemen" required="required" placeholder="Kode Departemen">
-                                </div>
-                                <div class="mb-3">
                                     <select class="custom-select mr-sm-2" name="direktorat_id" required="required" aria-label="Default select example">
                                         <option disabled selected>Pilih Direktorat</option>
 
@@ -41,6 +38,21 @@
                                             <option value="{{ $di->id }}">{{ $di->nama_direktorat }}</option>
                                         @endforeach
                                     </select>
+                                </div>
+                                <div class="mb-3">
+                                    <select class="custom-select mr-sm-2" name="devisi_id" required="required" aria-label="Default select example">
+                                        <option disabled selected>Pilih Devisi</option>
+
+                                        @foreach($devisi as $dev)
+                                            <option value="{{ $dev->id }}">{{ $dev->nama_devisi }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <input type="text" class="form-control input-Default" name="kode_departemen" required="required" placeholder="Kode Departemen">
+                                </div>
+                                <div class="mb-3">
+                                    <input type="text" class="form-control input-Default" name="nama_departemen" required="required" placeholder="Nama Departemen">
                                 </div>
                                 <div class="mb-3">
                                     <span>

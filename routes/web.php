@@ -16,10 +16,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-
+/*
 Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', [App\Http\Controllers\EofficeController::class, 'dashboard'])->name('dashboard');
-
+*/
     //departemen
     Route::get('/departemen', [App\Http\Controllers\EofficeController::class, 'departemen'])->name('departemen');
     Route::get('/form-departemen', [App\Http\Controllers\EofficeController::class, 'form_departemen'])->name('form_departemen');
@@ -101,4 +101,6 @@ Route::middleware(['auth'])->group(function () {
     //memo
     Route::get('/memo', [App\Http\Controllers\EofficeController::class, 'memo'])->name('memo');
     Route::get('/memo/form-memo', [App\Http\Controllers\EofficeController::class, 'form_memo'])->name('form_memo');
-});
+/*
+}); 
+*/

@@ -11,7 +11,7 @@ class pegawai extends Model
 
     protected $table = "pegawai";
 
-    protected $fillable = ['id', 'nik', 'no_ktp', 'nama_pegawai', 'npwp', 'jabatan_id', 'direktorat_id', 'devisidepartement_id'];
+    protected $fillable = ['id', 'nik', 'no_ktp', 'nama_pegawai', 'npwp', 'leveljabatan_id', 'direktorat_id','devisi_id', 'departement_id','seksi_id'];
 
     public function jabatan()
     {
