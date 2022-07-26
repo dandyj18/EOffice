@@ -103,7 +103,7 @@
                         console.log(data);
                         if(data){
                         $('#devisi_id').empty();
-                        $('#devisi_id').append('<option>Pilih Devisi</option>');
+                        $('#devisi_id').append('<option></option>');
                         $.each(data, function(key, value){
                             $('#devisi_id').append('<option value="'+ key +'">'+ value +'</option>');
                         });
@@ -129,7 +129,7 @@
                         console.log(datadevisi);
                         if(datadevisi){
                         $('#departemen_id').empty();
-                        $('#departemen_id').append('<option>Pilih Departemen</option>');
+                        $('#departemen_id').append('<option></option>');
                         $.each(datadevisi, function(key, value){
                             $('#departemen_id').append('<option value="'+ key +'">'+ value +'</option>');
                         });
@@ -155,7 +155,7 @@
                         console.log(datade);
                         if(datade){
                         $('#seksi_id').empty();
-                        $('#seksi_id').append('<option>Pilih Seksi</option>');
+                        $('#seksi_id').append('<option></option>');
                         $.each(datade, function(key, value){
                             $('#seksi_id').append('<option value="'+ key +'">'+ value +'</option>');
                         });
