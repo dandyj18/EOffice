@@ -509,11 +509,8 @@ class EofficeController extends Controller
         $pegawai = pegawai::all();
         $dir = direktorat::all()->pluck("nama_direktorat","id");
         $level = level_jabatan::all();
-        $departemen = departemen::all()->pluck("nama_departemen","id");
-        $devisi = Devisi::all()->pluck("nama_devisi","id");
-        $seksi = Seksi::all()->pluck("nama_seksi","id");
 
-        return view('content.pegawai.form_pegawai', ['pegawai' => $pegawai, 'level' => $level, 'dir' => $dir, 'departemen' => $departemen, 'devisi' => $devisi, 'seksi' => $seksi]);
+        return view('content.pegawai.form_pegawai', ['pegawai' => $pegawai, 'level' => $level, 'dir' => $dir]);
     }
 
     public function getdevisi($id){
@@ -523,15 +520,15 @@ class EofficeController extends Controller
     }
 
     public function getdepartemen($id){
-        $departemen = departemen::all()->where("devisi_id", $id)->pluck("nama_departemen", "id");
+        $devisi= departemen::all()->where("devisi_id", $id)->pluck("nama_departemen", "id");
 
-        return json_encode($departemen);
+        return json_encode($devisi);
     }
 
     public function getseksi($id){
-        $seksi = Seksi::all()->where("departemen_id", $id)->pluck("nama_seksi", "id");
+        $departemen = Seksi::all()->where("departemen_id", $id)->pluck("nama_seksi", "id");
 
-        return json_encode($seksi);
+        return json_encode($departemen);
     }
 
     public function insert_pegawai(Request $request){

@@ -61,17 +61,17 @@
                                         </select>
                                     </div>
                                     <div class="devisi-form mb-3">
-                                        <select class="custom-select mr-sm-2" name="devisi_id" id="devisi_id" required="required" aria-label="Default select example">
+                                        <select class="custom-select mr-sm-2" name="devisi_id" id="devisi_id" aria-label="Default select example">
                                             <option disabled selected>Pilih Devisi</option>
                                         </select>
                                     </div>
                                     <div class="departemen-form mb-3">
-                                        <select class="custom-select mr-sm-2" name="departemen_id" id="departemen_id" required="required" aria-label="Default select example">
+                                        <select class="custom-select mr-sm-2" name="departemen_id" id="departemen_id" aria-label="Default select example">
                                             <option disabled selected>Pilih Departemen</option>
                                         </select>
                                     </div>
                                     <div class="seksi-form mb-3">
-                                        <select class="custom-select mr-sm-2" name="seksi_id" id="seksi_id" required="required" aria-label="Default select example">
+                                        <select class="custom-select mr-sm-2" name="seksi_id" id="seksi_id" aria-label="Default select example">
                                             <option disabled selected>Pilih Seksi</option>
                                         </select>
                                     </div>
@@ -95,20 +95,23 @@
         $('#direktorat_id').on('change',function(){
              var dirID = $(this).val();
              if(dirID){
-                 $.ajax({
+                $.ajax({
                      url : 'pegawai/getdevisi/'+dirID,
                      type : "GET",
                      dataType : "json",
                      success: function(data){
                         console.log(data);
+                        if(data){
                         $('#devisi_id').empty();
-                        $('#departemen_id').empty();
-                        $('#seksi_id').empty();
+                        $('#devisi_id').append('<option>Pilih Devisi</option>');
                         $.each(data, function(key, value){
                             $('#devisi_id').append('<option value="'+ key +'">'+ value +'</option>');
                         });
-                     }
-                 });
+                        }else{
+                            $('#devisi_id').empty();
+                        }
+                    }
+                });
             }else{
                 $('#devisi_id').empty();
                 $('#departemen_id').empty();
@@ -119,17 +122,21 @@
              var devisiID = $(this).val();
              if(devisiID){
                  $.ajax({
-                     url : 'pegawai/getdepartemen/'+devisiID,
-                     type : "GET",
-                     dataType : "json",
-                     success: function(data){
-                        console.log(data);
+                    url : 'pegawai/getdepartemen/'+devisiID,
+                    type : "GET",
+                    dataType : "json",
+                    success: function(datadevisi){
+                        console.log(datadevisi);
+                        if(datadevisi){
                         $('#departemen_id').empty();
-                        $('#seksi_id').empty();
-                        $.each(data, function(key, value){
+                        $('#departemen_id').append('<option>Pilih Departemen</option>');
+                        $.each(datadevisi, function(key, value){
                             $('#departemen_id').append('<option value="'+ key +'">'+ value +'</option>');
                         });
-                     }
+                        }else{
+                            $('#departemen_id').empty();
+                        }
+                    }
                  });
             }else{
                  $('#departemen_id').empty();
@@ -141,16 +148,21 @@
              var departemenID = $(this).val();
              if(departemenID){
                  $.ajax({
-                     url : 'pegawai/getseksi/'+departemenID,
-                     type : "GET",
-                     dataType : "json",
-                     success: function(data){
-                        console.log(data);
+                    url : 'pegawai/getseksi/'+departemenID,
+                    type : "GET",
+                    dataType : "json",
+                    success: function(datade){
+                        console.log(datade);
+                        if(datade){
                         $('#seksi_id').empty();
-                        $.each(data, function(key, value){
+                        $('#seksi_id').append('<option>Pilih Seksi</option>');
+                        $.each(datade, function(key, value){
                             $('#seksi_id').append('<option value="'+ key +'">'+ value +'</option>');
                         });
-                     }
+                        }else{
+                            $('#seksi_id').empty();
+                        }
+                    }
                  });
             }else{
                  $('#seksi_id').empty();
