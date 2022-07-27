@@ -6,7 +6,7 @@
     <div class="col p-md-0">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a >Data</a></li>
-            <li class="breadcrumb-item"><a href="{{route('departemen')}}">Devisi Departemen</a></li>
+            <li class="breadcrumb-item"><a href="{{route('admin.departemen')}}">Devisi Departemen</a></li>
             <li class="breadcrumb-item active">Update Data Devisi Departemen</li>
         </ol>
     </div>
@@ -63,7 +63,7 @@
                                 <div class="mb-3">
                                     <span>
                                         <input class="btn btn-primary" type="submit" value="Submit" onClick="return confirm('Apakah data yang dimasukkan sudah benar ?')">
-                                        <a class="btn btn-success text-white" href="{{route('departemen')}}" role="button">Kembali</a>
+                                        <a class="btn btn-success text-white" href="{{route('admin.departemen')}}" role="button">Kembali</a>
                                     </span>
                                 </div>
                             </div>

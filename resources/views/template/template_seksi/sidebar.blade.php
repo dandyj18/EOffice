@@ -9,7 +9,7 @@
                 </a>
                 <ul aria-expanded="false">
                     
-                    <li><a href="{{route('HomeSeksi')}}">Home</a></li>
+                    <li><a href="{{route('seksi.HomeSeksi')}}">Home</a></li>
                 </ul>
             </li>   
             <li class="nav-label">Apps</li>
@@ -18,10 +18,10 @@
                     <i class="icon-envelope menu-icon"></i> <span class="nav-text">Surat</span>
                 </a>
                 <ul aria-expanded="false">
-                    <li><a href="{{route('MasukSeksi')}}">Surat Masuk</a></li>
-                    <li><a href="{{route('KeluarSeksi')}}">Surat Keluar</a></li>
-                    <li><a href="{{route('DisposisiSeksi')}}">Disposisi</a></li>
-                    <li><a href="{{route('MemoSeksi')}}">Memo</a></li>
+                    <li><a href="{{route('seksi.MasukSeksi')}}">Surat Masuk</a></li>
+                    <li><a href="{{route('seksi.KeluarSeksi')}}">Surat Keluar</a></li>
+                    <li><a href="{{route('seksi.DisposisiSeksi')}}">Disposisi</a></li>
+                    <li><a href="{{route('seksi.MemoSeksi')}}">Memo</a></li>
                 </ul>
             </li>
             <li>
@@ -29,14 +29,14 @@
                     <i class="icon-note menu-icon"></i><span class="nav-text">Data</span>
                 </a>
                 <ul aria-expanded="false">
-                    <li><a href="{{route('KategoriSeksi')}}">Kategori Surat</a></li>
-                    <li><a href="{{route('JenisSeksi')}}">Jenis Surat</a></li>
-                    <li><a href="{{route('DirektoratSeksi')}}">Direktorat</a></li>
-                    <li><a href="{{route('DevisiSeksi')}}">Devisi</a></li>
-                    <li><a href="{{route('DepartemenSeksi')}}">Departemen</a></li>
-                    <li><a href="{{route('SeksiSek')}}">Seksi</a></li>
-                    <li><a href="{{route('LevelSeksi')}}">Level Jabatan</a></li>
-                    <li><a href="{{route('PegawaiSeksi')}}">Pegawai</a></li>
+                    <li><a href="{{route('seksi.KategoriSeksi')}}">Kategori Surat</a></li>
+                    <li><a href="{{route('seksi.JenisSeksi')}}">Jenis Surat</a></li>
+                    <li><a href="{{route('seksi.DirektoratSeksi')}}">Direktorat</a></li>
+                    <li><a href="{{route('seksi.DevisiSeksi')}}">Devisi</a></li>
+                    <li><a href="{{route('seksi.DepartemenSeksi')}}">Departemen</a></li>
+                    <li><a href="{{route('seksi.SeksiSek')}}">Seksi</a></li>
+                    <li><a href="{{route('seksi.LevelSeksi')}}">Level Jabatan</a></li>
+                    <li><a href="{{route('seksi.PegawaiSeksi')}}">Pegawai</a></li>
                 </ul>
             </li>
         </ul>

@@ -6,7 +6,7 @@
     <div class="col p-md-0">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="javascript:void(0)">Data</a></li>
-            <li class="breadcrumb-item active"><a href="{{route('devisi')}}">Devisi</a></li>
+            <li class="breadcrumb-item active"><a href="{{route('direktur.devisi')}}">Devisi</a></li>
         </ol>
     </div>
 </div>

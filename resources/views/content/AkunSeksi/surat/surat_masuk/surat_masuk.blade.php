@@ -18,7 +18,7 @@
                 <div class="card-body">
                     <div class="card-title">
                         <h4>Surat Masuk</h4>
-                        <a class="btn btn-primary btn-sm" href="{{route('form_masuk')}}" role="button">+ Surat</a>
+                        <a class="btn btn-primary btn-sm" href="{{route('seksi.form_masuk')}}" role="button">+ Surat</a>
                     </div>
                     <div class="table-responsive">
                         <table class="table table-striped table-bordered zero-configuration">

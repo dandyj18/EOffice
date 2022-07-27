@@ -1,4 +1,4 @@
-@extends('template.template_devisi.index')
+@extends('template.template_dep.index')
 
 @section('content')
 
@@ -18,7 +18,7 @@
                 <div class="card-body">
                     <div class="card-title">
                         <h4>Memo</h4>
-                        <a class="btn btn-primary btn-sm" href="{{route('form_memo')}}" role="button">+ Memo</a>
+                        <a class="btn btn-primary btn-sm" href="{{route('departemen.form_memo')}}" role="button">+ Memo</a>
                     </div>
                     <div class="table-responsive">
                         <table class="table table-striped table-bordered zero-configuration">

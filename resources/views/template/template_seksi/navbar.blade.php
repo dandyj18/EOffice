@@ -1,6 +1,6 @@
 <div class="nav-header">
     <div class="brand-logo">
-        <a href="{{route('HomeSeksi')}}">
+        <a href="{{route('seksi.HomeSeksi')}}">
             <b class="logo-abbr"><h3 class="text-white">E</h3></b>
             <span class="logo-compact"><img src="{{asset('asset/images/logo-compact.png')}}" alt=""></span>
             <span class="brand-title">
@@ -42,19 +42,16 @@
                         <div class="dropdown-content-body">
                             <ul>
                                 <li>
-                                    <a href="app-profile.html"><i class="icon-user"></i> <span></span></a>
+                                    <a href="app-profile.html"><i class="icon-user"></i> <span>@auth {{auth()->user()->name}} @endauth</span></a>
                                 </li>
-                                <li>
-                                    <a href="javascript:void()">
-                                        <i class="icon-envelope-open"></i> <span>Inbox</span> <div class="badge gradient-3 badge-pill gradient-1">3</div>
-                                    </a>
-                                </li>
-                                
+                                                                
                                 <hr class="my-2">
-                                <li>
-                                    <a href="page-lock.html"><i class="icon-lock"></i> <span>Lock Screen</span></a>
-                                </li>
-                                <li><a href="/logout"><i class="icon-key"></i> <span>Logout</span></a></li>
+                                <li><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"> <i class="icon-key"></i> <span>Logout</span></a></li>
+
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none">
+                                    @csrf
+                                </form>
+                                
                             </ul>
                         </div>
                     </div>

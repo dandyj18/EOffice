@@ -18,7 +18,7 @@
                 <div class="card-body">
                     <div class="card-title">
                         <h4>Seksi</h4>
-                        <a class="btn btn-primary btn-sm" href="{{route('form_seksi')}}" role="button">+ Data</a>
+                        <a class="btn btn-primary btn-sm" href="{{route('admin.form_seksi')}}" role="button">+ Data</a>
                     </div>
                     <div class="table-responsive">
                         <table class="table table-striped table-bordered zero-configuration">
@@ -50,8 +50,8 @@
                                     <td class="text-center">{{$s->nama_seksi}}</td>
                                     <td class="text-center">
                                         <span style="float right">     
-                                            <a class="btn btn-warning btn-sm" href="/seksi/edit-seksi/{{$s->id}}" type="button"><img src="{{asset('asset/edit1.png')}}"/></a>
-                                            <a class="btn btn-danger btn-sm text-white" href="/seksi/delete-seksi/{{$s->id}}" role="button"><img src="{{asset('asset/delete.png')}}"/></a>
+                                            <a class="btn btn-warning btn-sm" href="seksi/edit-seksi/{{$s->id}}" type="button"><img src="{{asset('asset/edit1.png')}}"/></a>
+                                            <a class="btn btn-danger btn-sm text-white" href="seksi/delete-seksi/{{$s->id}}" role="button"><img src="{{asset('asset/delete.png')}}"/></a>
                                         </span>
                                     </td>
                                 </tr>

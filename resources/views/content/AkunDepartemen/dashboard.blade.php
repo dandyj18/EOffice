@@ -6,7 +6,7 @@
     <div class="container-fluid mt-3 center">
         <div class="row">
             <div class="col-lg-3 col-sm-6">
-                <a href="{{route('KeluarDep')}}">
+                <a href="{{route('departemen.KeluarDep')}}">
                     <div class="card gradient-1">
                         <div class="card-body">
                             <h3 class="card-title text-white">Surat Keluar(Keluar)</h3>
@@ -18,7 +18,7 @@
                 </a>
             </div>
             <div class="col-lg-3 col-sm-6">
-                <a href="{{route('KeluarDep')}}">
+                <a href="{{route('departemen.KeluarDep')}}">
                     <div class="card gradient-2">
                         <div class="card-body">
                             <h3 class="card-title text-white">Surat Keluar(Sukses)</h3>
@@ -30,7 +30,7 @@
                 </a>
             </div>
             <div class="col-lg-3 col-sm-6">
-                <a href="{{route('MasukDep')}}">
+                <a href="{{route('departemen.MasukDep')}}">
                     <div class="card gradient-3">
                         <div class="card-body">
                             <h3 class="card-title text-white">Surat Masuk</h3>
@@ -42,7 +42,7 @@
                 </a>
             </div>
             <div class="col-lg-3 col-sm-6">
-                <a href="{{route('DisposisiDep')}}">
+                <a href="{{route('departemen.DisposisiDep')}}">
                     <div class="card gradient-4">
                         <div class="card-body">
                             <h3 class="card-title text-white">Disposisi</h3>
@@ -56,7 +56,7 @@
         </div>
         <div class="row">
             <div class="col-lg-3 col-sm-6">
-                <a href="{{route('MemoDep')}}">
+                <a href="{{route('departemen.MemoDep')}}">
                     <div class="card gradient-7">
                         <div class="card-body">
                             <h3 class="card-title text-white">Memo</h3>
@@ -68,7 +68,7 @@
                 </a>
             </div>
             <div class="col-lg-3 col-sm-6">
-                <a href="{{route('DirektoratDep')}}">
+                <a href="{{route('departemen.DirektoratDep')}}">
                     <div class="card gradient-9">
                         <div class="card-body">
                             <h3 class="card-title text-white">Direktorat</h3>
@@ -80,7 +80,7 @@
                 </a>
             </div>
             <div class="col-lg-3 col-sm-6">
-                <a href="{{route('DevisiDep')}}">
+                <a href="{{route('departemen.DevisiDep')}}">
                     <div class="card gradient-6">
                         <div class="card-body">
                             <h3 class="card-title text-white">Devisi</h3>
@@ -92,7 +92,7 @@
                 </a>
             </div>
             <div class="col-lg-3 col-sm-6">
-                <a href="{{route('DepartemenDep')}}">
+                <a href="{{route('departemen.DepartemenDep')}}">
                     <div class="card gradient-9">
                         <div class="card-body">
                             <h3 class="card-title text-white">Departemen</h3>
@@ -106,7 +106,7 @@
         </div>
         <div class="row justify-content-center">
             <div class="col-lg-3 col-sm-6">
-                <a href="{{route('SeksiDep')}}">
+                <a href="{{route('departemen.SeksiDep')}}">
                     <div class="card gradient-1">
                         <div class="card-body">
                             <h3 class="card-title text-white">Seksi</h3>
@@ -118,7 +118,7 @@
                 </a>
             </div>
             <div class="col-lg-3 col-sm-6">
-                <a href="{{route('PegawaiDep')}}">
+                <a href="{{route('departemen.PegawaiDep')}}">
                     <div class="card gradient-2">
                         <div class="card-body">
                             <h3 class="card-title text-white">Pegawai</h3>

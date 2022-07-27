@@ -1,4 +1,4 @@
-@extends('template.template_direktur.index')
+@extends('template.template_dep.index')
 
 @section('content')
 
@@ -6,7 +6,7 @@
     <div class="col p-md-0">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="javascript:void(0)">Surat</a></li>
-            <li class="breadcrumb-item"><a href="{{route('MemoDevisi')}}">Memo</a></li>
+            <li class="breadcrumb-item"><a href="{{route('departemen.MemoDevisi')}}">Memo</a></li>
             <li class="breadcrumb-item active">Insert Memo</li>
         </ol>
     </div>
@@ -54,7 +54,7 @@
                                 <div class="mb-3">
                                     <span style="float-right">
                                         <input class="btn btn-primary" type="submit" value="Submit" onClick="return confirm('Apakah data yang dimasukkan sudah benar ?')">
-                                        <a class="btn btn-success text-white" href="{{route('memo')}}" role="button">Kembali</a>
+                                        <a class="btn btn-success text-white" href="{{route('departemen.MemoDep')}}" role="button">Kembali</a>
                                     </span>
                                 </div>
                             </div>

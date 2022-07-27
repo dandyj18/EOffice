@@ -18,7 +18,7 @@
                 <div class="card-body">
                     <div class="card-title">
                         <h4>Jenis Surat</h4>
-                        <a class="btn btn-primary btn-sm" href="{{route('form_jenissurat')}}" role="button">+ Data Jenis Surat</a>
+                        <a class="btn btn-primary btn-sm" href="{{route('admin.form_jenissurat')}}" role="button">+ Data Jenis Surat</a>
                     </div>
                     <div class="table-responsive">
                         <table class="table table-striped table-bordered zero-configuration">
@@ -47,8 +47,8 @@
                                     <td class="text-center">{{ $j->kode_jenis }}</td>
                                     <td class="text-center">
                                         <span style="float right">     
-                                            <a class="btn btn-warning btn-sm" href="/jenis-surat/edit-jenis-surat/{{$j->id}}" type="button"><img src="{{asset('asset/edit1.png')}}"/></a>
-                                            <a class="btn btn-danger btn-sm text-white" href="/jenis-surat/delete-jenis-surat/{{$j->id}}" role="button"><img src="{{asset('asset/delete.png')}}"/></a>
+                                            <a class="btn btn-warning btn-sm" href="jenis-surat/edit-jenis-surat/{{$j->id}}" type="button"><img src="{{asset('asset/edit1.png')}}"/></a>
+                                            <a class="btn btn-danger btn-sm text-white" href="jenis-surat/delete-jenis-surat/{{$j->id}}" role="button"><img src="{{asset('asset/delete.png')}}"/></a>
                                         </span>
                                     </td>
                                 </tr>

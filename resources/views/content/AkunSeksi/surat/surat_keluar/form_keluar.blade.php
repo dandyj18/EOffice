@@ -6,7 +6,7 @@
     <div class="col p-md-0">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="javascript:void(0)">Surat</a></li>
-            <li class="breadcrumb-item"><a href="{{route('KeluarSeksi')}}">Surat Keluar</a></li>
+            <li class="breadcrumb-item"><a href="{{route('seksi.KeluarSeksi')}}">Surat Keluar</a></li>
             <li class="breadcrumb-item active">Insert Surat Keluar</li>
         </ol>
     </div>
@@ -55,7 +55,7 @@
                                 <div class="mb-3">
                                     <span style="float-right">
                                         <input class="btn btn-primary" type="submit" value="Submit" onClick="return confirm('Apakah data yang dimasukkan sudah benar ?')">
-                                        <a class="btn btn-success text-white" href="{{route('surat_keluar')}}" role="button">Kembali</a>
+                                        <a class="btn btn-success text-white" href="{{route('seksi.surat_keluar')}}" role="button">Kembali</a>
                                     </span>
                                 </div>
                             </div>

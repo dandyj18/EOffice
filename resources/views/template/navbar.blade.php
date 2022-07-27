@@ -34,7 +34,7 @@
         <div class="header-right">
             <ul class="clearfix">
                 <li class="icons dropdown">
-                    <div class="user-img c-pointer position-relative"   data-toggle="dropdown">
+                    <div class="user-img c-pointer position-relative" data-toggle="dropdown">
                         <span class="activity active"></span>
                         <img src="{{asset('asset/images/user/form-user.png')}}" height="40" width="40" alt="">
                     </div>
@@ -42,7 +42,7 @@
                         <div class="dropdown-content-body">
                             <ul>
                                 <li>
-                                    <a href="app-profile.html"><i class="icon-user"></i> <span>Profile</span></a>
+                                    <a href="app-profile.html"><i class="icon-user"></i> <span>@auth {{auth()->user()->name}} @endauth</span></a>
                                 </li>
                                                                 
                                 <hr class="my-2">

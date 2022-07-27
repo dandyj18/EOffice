@@ -6,7 +6,7 @@
     <div class="container-fluid mt-3 center">
         <div class="row">
             <div class="col-lg-3 col-sm-6">
-                <a href="{{route('KeluarDirektur')}}">
+                <a href="{{route('direktur.KeluarDirektur')}}">
                     <div class="card gradient-1">
                         <div class="card-body">
                             <h3 class="card-title text-white">Surat Keluar(Keluar)</h3>
@@ -18,7 +18,7 @@
                 </a>
             </div>
             <div class="col-lg-3 col-sm-6">
-                <a href="{{route('KeluarDirektur')}}">
+                <a href="{{route('direktur.KeluarDirektur')}}">
                     <div class="card gradient-2">
                         <div class="card-body">
                             <h3 class="card-title text-white">Surat Keluar(Sukses)</h3>
@@ -30,7 +30,7 @@
                 </a>
             </div>
             <div class="col-lg-3 col-sm-6">
-                <a href="{{route('MasukDirektur')}}">
+                <a href="{{route('direktur.MasukDirektur')}}">
                     <div class="card gradient-3">
                         <div class="card-body">
                             <h3 class="card-title text-white">Surat Masuk</h3>
@@ -42,7 +42,7 @@
                 </a>
             </div>
             <div class="col-lg-3 col-sm-6">
-                <a href="{{route('DisposisiDirektur')}}">
+                <a href="{{route('direktur.DisposisiDirektur')}}">
                     <div class="card gradient-4">
                         <div class="card-body">
                             <h3 class="card-title text-white">Disposisi</h3>
@@ -56,7 +56,7 @@
         </div>
         <div class="row">
             <div class="col-lg-3 col-sm-6">
-                <a href="{{route('MemoDirektur')}}">
+                <a href="{{route('direktur.MemoDirektur')}}">
                     <div class="card gradient-7">
                         <div class="card-body">
                             <h3 class="card-title text-white">Memo</h3>
@@ -68,7 +68,7 @@
                 </a>
             </div>
             <div class="col-lg-3 col-sm-6">
-                <a href="{{route('DirektoratDirektur')}}">
+                <a href="{{route('direktur.DirektoratDirektur')}}">
                     <div class="card gradient-9">
                         <div class="card-body">
                             <h3 class="card-title text-white">Direktorat</h3>
@@ -80,7 +80,7 @@
                 </a>
             </div>
             <div class="col-lg-3 col-sm-6">
-                <a href="{{route('DevisiDirektur')}}">
+                <a href="{{route('direktur.DevisiDirektur')}}">
                     <div class="card gradient-6">
                         <div class="card-body">
                             <h3 class="card-title text-white">Devisi</h3>
@@ -92,7 +92,7 @@
                 </a>
             </div>
             <div class="col-lg-3 col-sm-6">
-                <a href="{{route('DepartemenDirektur')}}">
+                <a href="{{route('direktur.DepartemenDirektur')}}">
                     <div class="card gradient-9">
                         <div class="card-body">
                             <h3 class="card-title text-white">Departemen</h3>
@@ -106,7 +106,7 @@
         </div>
         <div class="row justify-content-center">
             <div class="col-lg-3 col-sm-6">
-                <a href="{{route('SeksiDirektur')}}">
+                <a href="{{route('direktur.SeksiDirektur')}}">
                     <div class="card gradient-1">
                         <div class="card-body">
                             <h3 class="card-title text-white">Seksi</h3>
@@ -118,7 +118,7 @@
                 </a>
             </div>
             <div class="col-lg-3 col-sm-6">
-                <a href="{{route('PegawaiDirektur')}}">
+                <a href="{{route('direktur.PegawaiDirektur')}}">
                     <div class="card gradient-2">
                         <div class="card-body">
                             <h3 class="card-title text-white">Pegawai</h3>

@@ -9,7 +9,7 @@
                 </a>
                 <ul aria-expanded="false">
                     
-                    <li><a href="{{route('HomeDevisi')}}">Home</a></li>
+                    <li><a href="{{route('devisi.HomeDevisi')}}">Home</a></li>
                 </ul>
             </li>   
             <li class="nav-label">Apps</li>
@@ -18,10 +18,10 @@
                     <i class="icon-envelope menu-icon"></i> <span class="nav-text">Surat</span>
                 </a>
                 <ul aria-expanded="false">
-                    <li><a href="{{route('MasukDevisi')}}">Surat Masuk</a></li>
-                    <li><a href="{{route('KeluarDevisi')}}">Surat Keluar</a></li>
-                    <li><a href="{{route('DisposisiDevisi')}}">Disposisi</a></li>
-                    <li><a href="{{route('MemoDevisi')}}">Memo</a></li>
+                    <li><a href="{{route('devisi.MasukDevisi')}}">Surat Masuk</a></li>
+                    <li><a href="{{route('devisi.KeluarDevisi')}}">Surat Keluar</a></li>
+                    <li><a href="{{route('devisi.DisposisiDevisi')}}">Disposisi</a></li>
+                    <li><a href="{{route('devisi.MemoDevisi')}}">Memo</a></li>
                 </ul>
             </li>
             <li>
@@ -29,14 +29,14 @@
                     <i class="icon-note menu-icon"></i><span class="nav-text">Data</span>
                 </a>
                 <ul aria-expanded="false">
-                    <li><a href="{{route('KategoriDevisi')}}">Kategori Surat</a></li>
-                    <li><a href="{{route('JenisDevisi')}}">Jenis Surat</a></li>
-                    <li><a href="{{route('DirektoratDevisi')}}">Direktorat</a></li>
-                    <li><a href="{{route('DevisiDevisi')}}">Devisi</a></li>
-                    <li><a href="{{route('DepartemenDevisi')}}">Departemen</a></li>
-                    <li><a href="{{route('SeksiDevisi')}}">Seksi</a></li>
-                    <li><a href="{{route('LevelDevisi')}}">Level Jabatan</a></li>
-                    <li><a href="{{route('PegawaiDevisi')}}">Pegawai</a></li>
+                    <li><a href="{{route('devisi.KategoriDevisi')}}">Kategori Surat</a></li>
+                    <li><a href="{{route('devisi.JenisDevisi')}}">Jenis Surat</a></li>
+                    <li><a href="{{route('devisi.DirektoratDevisi')}}">Direktorat</a></li>
+                    <li><a href="{{route('devisi.DevisiDevisi')}}">Devisi</a></li>
+                    <li><a href="{{route('devisi.DepartemenDevisi')}}">Departemen</a></li>
+                    <li><a href="{{route('devisi.SeksiDevisi')}}">Seksi</a></li>
+                    <li><a href="{{route('devisi.LevelDevisi')}}">Level Jabatan</a></li>
+                    <li><a href="{{route('devisi.PegawaiDevisi')}}">Pegawai</a></li>
                 </ul>
             </li>
         </ul>

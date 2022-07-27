@@ -21,7 +21,7 @@ Route::middleware('auth')->group(function () {
 
 
     Route::get('/dashboard', function () {
-        $role = (int)\Illuminate\Support\Facades\Auth::user()->id;
+        $role = (int)\Illuminate\Support\Facades\Auth::user()->role_id;
 
         if ($role === 1) {
             return redirect()->route('admin.dashboard');
@@ -30,13 +30,12 @@ Route::middleware('auth')->group(function () {
         } if ($role === 3) {
             return redirect()->route('devisi.HomeDevisi');
         } if ($role === 4) {
-            return redirect()->route('departemen.HomeDepartemen');
-        } if ($role === 5) {
-            return redirect()->route('seksi.HomeSeksi');
-        } 
+            return redirect()->route('departemen.HomeDep');
+        }
+        return redirect()->route('seksi.HomeSeksi');
     })->name('dashboard');
 
-    Route::prefix('Admin')->name('admin.')->middleware('role:1')->group(function () {
+    Route::prefix('admin')->name('admin.')->middleware('role:1')->group(function () {
 
     Route::get('/dashboard', [App\Http\Controllers\EofficeController::class, 'dashboard'])->name('dashboard');
 
@@ -132,7 +131,7 @@ Route::middleware('auth')->group(function () {
 
 });
 
-    Route::prefix('Direktur')->name('direktur.')->middleware('role:2')->group(function () {
+    Route::prefix('direktur')->name('direktur.')->middleware('role:2')->group(function () {
     //Direktur
 
     //Dashboard
@@ -186,7 +185,7 @@ Route::middleware('auth')->group(function () {
 
 });
 
-    Route::prefix('Devisi')->name('devisi.')->middleware('role:3')->group(function () {
+    Route::prefix('devisi')->name('devisi.')->middleware('role:3')->group(function () {
     //Devisi
     //Dashboard
     Route::get('/dashboard-devisi', [App\Http\Controllers\DevisiController::class, 'dashboard'])->name('HomeDevisi');
@@ -238,7 +237,7 @@ Route::middleware('auth')->group(function () {
 
 });
 
-Route::prefix('Departemen')->name('departemen.')->middleware('role:4')->group(function () {
+Route::prefix('departemen')->name('departemen.')->middleware('role:4')->group(function () {
     //Departemen
 
     //Dashboard
@@ -292,7 +291,7 @@ Route::prefix('Departemen')->name('departemen.')->middleware('role:4')->group(fu
 
 });
 
-    Route::prefix('Seksi')->name('seksi.')->middleware('role:5')->group(function () {
+    Route::prefix('seksi')->name('seksi.')->middleware('role:5')->group(function () {
     //Seksi
 
     //Dashboard

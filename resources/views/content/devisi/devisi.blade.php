@@ -6,7 +6,7 @@
     <div class="col p-md-0">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="javascript:void(0)">Data</a></li>
-            <li class="breadcrumb-item active"><a href="{{route('devisi')}}">Devisi</a></li>
+            <li class="breadcrumb-item active"><a href="{{route('admin.devisi')}}">Devisi</a></li>
         </ol>
     </div>
 </div>
@@ -18,7 +18,7 @@
                 <div class="card-body">
                     <div class="card-title">
                         <h4>Devisi</h4>
-                        <a class="btn btn-primary btn-sm" href="{{route('form_devisi')}}" role="button">+ Data</a>
+                        <a class="btn btn-primary btn-sm" href="{{route('admin.form_devisi')}}" role="button">+ Data</a>
                     </div>
                     <div class="table-responsive">
                         <table class="table table-striped table-bordered zero-configuration">

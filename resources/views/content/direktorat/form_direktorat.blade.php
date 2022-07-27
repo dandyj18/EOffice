@@ -6,8 +6,8 @@
     <div class="col p-md-0">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a >Data</a></li>
-            <li class="breadcrumb-item"><a href="{{route('direktorat')}}">Direktorat</a></li>
-            <li class="breadcrumb-item active"><a href="{{route('insert_direktorat')}}">Insert Direktorat</a></li>
+            <li class="breadcrumb-item"><a href="{{route('admin.direktorat')}}">Direktorat</a></li>
+            <li class="breadcrumb-item active"><a href="{{route('admin.insert_direktorat')}}">Insert Direktorat</a></li>
         </ol>
     </div>
 </div>
@@ -27,7 +27,7 @@
                     @endif
                     <div class="basic-form">
                         <center>
-                        <form action="{{route('insert_direktorat')}}" method="POST" enctype="multipart/form-data">
+                        <form action="{{route('admin.insert_direktorat')}}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="form-group col-md-8">
                                 <div class="mb-3">
@@ -39,7 +39,7 @@
                                 <div class="mb-3">
                                     <span>
                                         <input class="btn btn-primary mr-auto" type="submit" value="Submit" onClick="return confirm('Apakah data yang dimasukkan sudah benar ?')">
-                                        <a class="btn btn-success text-white mr-auto" href="{{route('direktorat')}}" role="button">Kembali</a>
+                                        <a class="btn btn-success text-white mr-auto" href="{{route('admin.direktorat')}}" role="button">Kembali</a>
                                     </span>
                                 </div>
                             </div>
