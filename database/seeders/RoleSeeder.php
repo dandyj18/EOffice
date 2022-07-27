@@ -19,11 +19,18 @@ class RoleSeeder extends Seeder
         ]);
 
         Role::create([
-            'nama_role'=>'Perusahaan',
+            'nama_role'=>'Direktur',
         ]);
 
         Role::create([
-            'nama_role'=>'Karyawan',
+            'nama_role'=>'Devisi',
         ]);
+        Role::create([
+            'nama_role'=>'Departemen',
+        ]);
+        Role::create([
+            'nama_role'=>'Seksi',
+        ]);
+
     }
 }

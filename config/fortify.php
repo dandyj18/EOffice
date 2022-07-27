@@ -52,7 +52,7 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Home Path
+    | Dashboard Path
     |--------------------------------------------------------------------------
     |
     | Here you may configure the path where users will get redirected during
@@ -60,8 +60,8 @@ return [
     | and the user is authenticated. You are free to change this value.
     |
     */
-
-    'home' => '/login',
+    
+    'dashboard' => '/login',
 
     /*
     |--------------------------------------------------------------------------

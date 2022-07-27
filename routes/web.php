@@ -16,9 +16,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-/*
+
 Route::middleware(['auth'])->group(function () {
-*/
+
     Route::get('/dashboard', [App\Http\Controllers\EofficeController::class, 'dashboard'])->name('dashboard');
 
     //departemen
@@ -109,42 +109,40 @@ Route::middleware(['auth'])->group(function () {
 
     //memo
     Route::get('/memo', [App\Http\Controllers\EofficeController::class, 'memo'])->name('memo');
-    Route::get('/memo/form-memo', [App\Http\Controllers\EofficeController::class, 'form_memo'])->name('form_memo');
-/*
-}); 
-*/
+    Route::get('/memo/form-memo', [App\Http\Controllers\EofficeController::class, 'form_memo'])->name('form_memo'); 
 
 
-//Direktur
 
-//Dashboard
-Route::get('/dashboard-direktur', [App\Http\Controllers\DirekturController::class, 'dashboard'])->name('HomeDirektur');
+    //Direktur
 
-//Kategori
-Route::get('/kategori-surat-direktur', [App\Http\Controllers\DirekturController::class, 'kategori'])->name('KategoriDirektur');
+    //Dashboard
+    Route::get('/dashboard-direktur', [App\Http\Controllers\DirekturController::class, 'dashboard'])->name('HomeDirektur');
 
-//Jenis Surat
-Route::get('/jenis-surat-direktur', [App\Http\Controllers\DirekturController::class, 'jenis_surat'])->name('JenisDirektur');
+    //Kategori
+    Route::get('/kategori-surat-direktur', [App\Http\Controllers\DirekturController::class, 'kategori'])->name('KategoriDirektur');
 
-//Direktorat
-Route::get('/direktorat-direktur', [App\Http\Controllers\DirekturController::class, 'direktorat'])->name('DirektoratDirektur');
+    //Jenis Surat
+    Route::get('/jenis-surat-direktur', [App\Http\Controllers\DirekturController::class, 'jenis_surat'])->name('JenisDirektur');
 
-//Devisi
-Route::get('/devisi-direktur', [App\Http\Controllers\DirekturController::class, 'devisi'])->name('DevisiDirektur');
+    //Direktorat
+    Route::get('/direktorat-direktur', [App\Http\Controllers\DirekturController::class, 'direktorat'])->name('DirektoratDirektur');
 
-//Departemen
-Route::get('/departemen-direktur', [App\Http\Controllers\DirekturController::class, 'departemen'])->name('DepartemenDirektur');
+    //Devisi
+    Route::get('/devisi-direktur', [App\Http\Controllers\DirekturController::class, 'devisi'])->name('DevisiDirektur');
 
-//Seksi
-Route::get('/seksi-direktur', [App\Http\Controllers\DirekturController::class, 'seksi'])->name('SeksiDirektur');
+    //Departemen
+    Route::get('/departemen-direktur', [App\Http\Controllers\DirekturController::class, 'departemen'])->name('DepartemenDirektur');
 
-//Level Jabatan
-Route::get('/level-jabatan-direktur', [App\Http\Controllers\DirekturController::class, 'level_jabatan'])->name('LevelDirektur');
+    //Seksi
+    Route::get('/seksi-direktur', [App\Http\Controllers\DirekturController::class, 'seksi'])->name('SeksiDirektur');
 
-//Pegawai
-Route::get('/pegawai-direktur', [App\Http\Controllers\DirekturController::class, 'pegawai'])->name('PegawaiDirektur');
+    //Level Jabatan
+    Route::get('/level-jabatan-direktur', [App\Http\Controllers\DirekturController::class, 'level_jabatan'])->name('LevelDirektur');
 
-//Surat Direktur
+    //Pegawai
+    Route::get('/pegawai-direktur', [App\Http\Controllers\DirekturController::class, 'pegawai'])->name('PegawaiDirektur');
+
+    //Surat Direktur
 
     //surat masuk
     Route::get('/surat-masuk-direktur', [App\Http\Controllers\DirekturController::class, 'surat_masuk'])->name('MasukDirektur');
@@ -168,35 +166,35 @@ Route::get('/pegawai-direktur', [App\Http\Controllers\DirekturController::class,
 
 
 
-//Devisi
-//Dashboard
-Route::get('/dashboard-devisi', [App\Http\Controllers\DevisiController::class, 'dashboard'])->name('HomeDevisi');
+    //Devisi
+    //Dashboard
+    Route::get('/dashboard-devisi', [App\Http\Controllers\DevisiController::class, 'dashboard'])->name('HomeDevisi');
 
-//Kategori
-Route::get('/kategori-surat-devisi', [App\Http\Controllers\DevisiController::class, 'kategori'])->name('KategoriDevisi');
+    //Kategori
+    Route::get('/kategori-surat-devisi', [App\Http\Controllers\DevisiController::class, 'kategori'])->name('KategoriDevisi');
 
-//Jenis Surat
-Route::get('/jenis-surat-devisi', [App\Http\Controllers\DevisiController::class, 'jenis_surat'])->name('JenisDevisi');
+    //Jenis Surat
+    Route::get('/jenis-surat-devisi', [App\Http\Controllers\DevisiController::class, 'jenis_surat'])->name('JenisDevisi');
 
-//Direktorat
-Route::get('/direktorat-devisi', [App\Http\Controllers\DevisiController::class, 'direktorat'])->name('DirektoratDevisi');
+    //Direktorat
+    Route::get('/direktorat-devisi', [App\Http\Controllers\DevisiController::class, 'direktorat'])->name('DirektoratDevisi');
 
-//Devisi
-Route::get('/devisi-devisi', [App\Http\Controllers\DevisiController::class, 'devisi'])->name('DevisiDevisi');
+    //Devisi
+    Route::get('/devisi-devisi', [App\Http\Controllers\DevisiController::class, 'devisi'])->name('DevisiDevisi');
 
-//Departemen
-Route::get('/departemen-devisi', [App\Http\Controllers\DevisiController::class, 'departemen'])->name('DepartemenDevisi');
+    //Departemen
+    Route::get('/departemen-devisi', [App\Http\Controllers\DevisiController::class, 'departemen'])->name('DepartemenDevisi');
 
-//Seksi
-Route::get('/seksi-devisi', [App\Http\Controllers\DevisiController::class, 'seksi'])->name('SeksiDevisi');
+    //Seksi
+    Route::get('/seksi-devisi', [App\Http\Controllers\DevisiController::class, 'seksi'])->name('SeksiDevisi');
 
-//Level Jabatan
-Route::get('/level-jabatan-devisi', [App\Http\Controllers\DevisiController::class, 'level_jabatan'])->name('LevelDevisi');
+    //Level Jabatan
+    Route::get('/level-jabatan-devisi', [App\Http\Controllers\DevisiController::class, 'level_jabatan'])->name('LevelDevisi');
 
-//Pegawai
-Route::get('/pegawai-devisi', [App\Http\Controllers\DevisiController::class, 'pegawai'])->name('PegawaiDevisi');
+    //Pegawai
+    Route::get('/pegawai-devisi', [App\Http\Controllers\DevisiController::class, 'pegawai'])->name('PegawaiDevisi');
 
-//Surat Devisi
+    //Surat Devisi
 
     //surat masuk
     Route::get('/surat-masuk-devisi', [App\Http\Controllers\DevisiController::class, 'surat_masuk'])->name('MasukDevisi');
@@ -219,36 +217,36 @@ Route::get('/pegawai-devisi', [App\Http\Controllers\DevisiController::class, 'pe
 
 
 
-//Departemen
+    //Departemen
 
-//Dashboard
-Route::get('/dashboard-departemen', [App\Http\Controllers\DepartemenController::class, 'dashboard'])->name('HomeDep');
+    //Dashboard
+    Route::get('/dashboard-departemen', [App\Http\Controllers\DepartemenController::class, 'dashboard'])->name('HomeDep');
 
-//Kategori
-Route::get('/kategori-surat-departemen', [App\Http\Controllers\DepartemenController::class, 'kategori'])->name('KategoriDep');
+    //Kategori
+    Route::get('/kategori-surat-departemen', [App\Http\Controllers\DepartemenController::class, 'kategori'])->name('KategoriDep');
 
-//Jenis Surat
-Route::get('/jenis-surat-departemen', [App\Http\Controllers\DepartemenController::class, 'jenis_surat'])->name('JenisDep');
+    //Jenis Surat
+    Route::get('/jenis-surat-departemen', [App\Http\Controllers\DepartemenController::class, 'jenis_surat'])->name('JenisDep');
 
-//Direktorat
-Route::get('/direktorat-departemen', [App\Http\Controllers\DepartemenController::class, 'direktorat'])->name('DirektoratDep');
+    //Direktorat
+    Route::get('/direktorat-departemen', [App\Http\Controllers\DepartemenController::class, 'direktorat'])->name('DirektoratDep');
 
-//Devisi
-Route::get('/devisi-departemen', [App\Http\Controllers\DepartemenController::class, 'devisi'])->name('DevisiDep');
+    //Devisi
+    Route::get('/devisi-departemen', [App\Http\Controllers\DepartemenController::class, 'devisi'])->name('DevisiDep');
 
-//Departemen
-Route::get('/departemen-departemen', [App\Http\Controllers\DepartemenController::class, 'departemen'])->name('DepartemenDep');
+    //Departemen
+    Route::get('/departemen-departemen', [App\Http\Controllers\DepartemenController::class, 'departemen'])->name('DepartemenDep');
 
-//Seksi
-Route::get('/seksi-departemen', [App\Http\Controllers\DepartemenController::class, 'seksi'])->name('SeksiDep');
+    //Seksi
+    Route::get('/seksi-departemen', [App\Http\Controllers\DepartemenController::class, 'seksi'])->name('SeksiDep');
 
-//Level Jabatan
-Route::get('/level-jabatan-departemen', [App\Http\Controllers\DepartemenController::class, 'level_jabatan'])->name('LevelDep');
+    //Level Jabatan
+    Route::get('/level-jabatan-departemen', [App\Http\Controllers\DepartemenController::class, 'level_jabatan'])->name('LevelDep');
 
-//Pegawai
-Route::get('/pegawai-departemen', [App\Http\Controllers\DepartemenController::class, 'pegawai'])->name('PegawaiDep');
+    //Pegawai
+    Route::get('/pegawai-departemen', [App\Http\Controllers\DepartemenController::class, 'pegawai'])->name('PegawaiDep');
 
-//Surat Departemen
+    //Surat Departemen
 
     //surat masuk
     Route::get('/surat-masuk-departemen', [App\Http\Controllers\DepartemenController::class, 'surat_masuk'])->name('MasukDep');
@@ -271,36 +269,36 @@ Route::get('/pegawai-departemen', [App\Http\Controllers\DepartemenController::cl
 
 
 
-//Seksi
+    //Seksi
 
-//Dashboard
-Route::get('/dashboard-seksi', [App\Http\Controllers\SeksiController::class, 'dashboard'])->name('HomeSeksi');
+    //Dashboard
+    Route::get('/dashboard-seksi', [App\Http\Controllers\SeksiController::class, 'dashboard'])->name('HomeSeksi');
 
-//Kategori
-Route::get('/kategori-surat-seksi', [App\Http\Controllers\SeksiController::class, 'kategori'])->name('KategoriSeksi');
+    //Kategori
+    Route::get('/kategori-surat-seksi', [App\Http\Controllers\SeksiController::class, 'kategori'])->name('KategoriSeksi');
 
-//Jenis Surat
-Route::get('/jenis-surat-seksi', [App\Http\Controllers\SeksiController::class, 'jenis_surat'])->name('JenisSeksi');
+    //Jenis Surat
+    Route::get('/jenis-surat-seksi', [App\Http\Controllers\SeksiController::class, 'jenis_surat'])->name('JenisSeksi');
 
-//Direktorat
-Route::get('/direktorat-seksi', [App\Http\Controllers\SeksiController::class, 'direktorat'])->name('DirektoratSeksi');
+    //Direktorat
+    Route::get('/direktorat-seksi', [App\Http\Controllers\SeksiController::class, 'direktorat'])->name('DirektoratSeksi');
 
-//Devisi
-Route::get('/devisi-seksi', [App\Http\Controllers\SeksiController::class, 'devisi'])->name('DevisiSeksi');
+    //Devisi
+    Route::get('/devisi-seksi', [App\Http\Controllers\SeksiController::class, 'devisi'])->name('DevisiSeksi');
 
-//Departemen
-Route::get('/departemen-seksi', [App\Http\Controllers\SeksiController::class, 'departemen'])->name('DepartemenSeksi');
+    //Departemen
+    Route::get('/departemen-seksi', [App\Http\Controllers\SeksiController::class, 'departemen'])->name('DepartemenSeksi');
 
-//Seksi
-Route::get('/seksi-seksi', [App\Http\Controllers\SeksiController::class, 'seksi'])->name('SeksiSek');
+    //Seksi
+    Route::get('/seksi-seksi', [App\Http\Controllers\SeksiController::class, 'seksi'])->name('SeksiSek');
 
-//Level Jabatan
-Route::get('/level-jabatan-seksi', [App\Http\Controllers\SeksiController::class, 'level_jabatan'])->name('LevelSeksi');
+    //Level Jabatan
+    Route::get('/level-jabatan-seksi', [App\Http\Controllers\SeksiController::class, 'level_jabatan'])->name('LevelSeksi');
 
-//Pegawai
-Route::get('/pegawai-seksi', [App\Http\Controllers\SeksiController::class, 'pegawai'])->name('PegawaiSeksi');
+    //Pegawai
+    Route::get('/pegawai-seksi', [App\Http\Controllers\SeksiController::class, 'pegawai'])->name('PegawaiSeksi');
 
-//Surat Direktur
+    //Surat Direktur
 
     //surat masuk
     Route::get('/surat-masuk-seksi', [App\Http\Controllers\SeksiController::class, 'surat_masuk'])->name('MasukSeksi');
@@ -320,3 +318,4 @@ Route::get('/pegawai-seksi', [App\Http\Controllers\SeksiController::class, 'pega
     //memo
     Route::get('/memo-seksi', [App\Http\Controllers\SeksiController::class, 'memo'])->name('MemoSeksi');
     Route::get('/memo/form-memo-seksi', [App\Http\Controllers\SeksiController::class, 'form_memo'])->name('form_memo');
+});

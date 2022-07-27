@@ -27,14 +27,14 @@ class FortifyServiceProvider extends ServiceProvider
         $this->app->instance(LogoutResponse::class, new class implements LogoutResponse {
             public function toResponse($request)
             {
-                return redirect('/');
+                return redirect('/login');
             }
         });
 
         $this->app->instance(LoginResponse::class, new class implements LoginResponse {
-            public function toResponse($request)
+            public function toResponse($request) : \Illuminate\Routing\Redirector|\Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse
             {
-                return redirect('/');
+                return redirect('dashboard');
             }
         });
     }
@@ -57,9 +57,6 @@ class FortifyServiceProvider extends ServiceProvider
             return Limit::perMinute(5)->by($email.$request->ip());
         });
 
-        // RateLimiter::for('two-factor', function (Request $request) {
-        //     return Limit::perMinute(5)->by($request->session()->get('login.id'));
-        // });
 
         Fortify::loginView(function () {
             return view('auth.login');
@@ -71,5 +68,9 @@ class FortifyServiceProvider extends ServiceProvider
             
             return view('auth.register', ['role' => $role]);
         });
+
+ // RateLimiter::for('two-factor', function (Request $request) {
+        //     return Limit::perMinute(5)->by($request->session()->get('login.id'));
+        // });
     }
 }
