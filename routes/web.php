@@ -17,7 +17,26 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::middleware(['auth'])->group(function () {
+Route::middleware('auth')->group(function () {
+
+
+    Route::get('/dashboard', function () {
+        $role = (int)\Illuminate\Support\Facades\Auth::user()->id;
+
+        if ($role === 1) {
+            return redirect()->route('admin.dashboard');
+        } if ($role === 2) {
+            return redirect()->route('direktur.HomeDirektur');
+        } if ($role === 3) {
+            return redirect()->route('devisi.HomeDevisi');
+        } if ($role === 4) {
+            return redirect()->route('departemen.HomeDepartemen');
+        } if ($role === 5) {
+            return redirect()->route('seksi.HomeSeksi');
+        } 
+    })->name('dashboard');
+
+    Route::prefix('Admin')->name('admin.')->middleware('role:1')->group(function () {
 
     Route::get('/dashboard', [App\Http\Controllers\EofficeController::class, 'dashboard'])->name('dashboard');
 
@@ -111,8 +130,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/memo', [App\Http\Controllers\EofficeController::class, 'memo'])->name('memo');
     Route::get('/memo/form-memo', [App\Http\Controllers\EofficeController::class, 'form_memo'])->name('form_memo'); 
 
+});
 
-
+    Route::prefix('Direktur')->name('direktur.')->middleware('role:2')->group(function () {
     //Direktur
 
     //Dashboard
@@ -164,8 +184,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/memo/form-memo-direktur', [App\Http\Controllers\DirekturController::class, 'form_memo'])->name('form_memo');
 
 
+});
 
-
+    Route::prefix('Devisi')->name('devisi.')->middleware('role:3')->group(function () {
     //Devisi
     //Dashboard
     Route::get('/dashboard-devisi', [App\Http\Controllers\DevisiController::class, 'dashboard'])->name('HomeDevisi');
@@ -215,8 +236,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/memo-devisi', [App\Http\Controllers\DevisiController::class, 'memo'])->name('MemoDevisi');
     Route::get('/memo/form-memo-devisi', [App\Http\Controllers\DevisiController::class, 'form_memo'])->name('form_memo');
 
+});
 
-
+Route::prefix('Departemen')->name('departemen.')->middleware('role:4')->group(function () {
     //Departemen
 
     //Dashboard
@@ -268,7 +290,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/memo/form-memo-departemen', [App\Http\Controllers\DepartemenController::class, 'form_memo'])->name('form_memo');
 
 
+});
 
+    Route::prefix('Seksi')->name('seksi.')->middleware('role:5')->group(function () {
     //Seksi
 
     //Dashboard
@@ -318,4 +342,6 @@ Route::middleware(['auth'])->group(function () {
     //memo
     Route::get('/memo-seksi', [App\Http\Controllers\SeksiController::class, 'memo'])->name('MemoSeksi');
     Route::get('/memo/form-memo-seksi', [App\Http\Controllers\SeksiController::class, 'form_memo'])->name('form_memo');
+    });
+
 });

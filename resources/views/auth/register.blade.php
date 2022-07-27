@@ -45,8 +45,10 @@
         
                                 <form class="mt-5 mb-5 login-input" action="{{URL::route('register')}}" method="POST">
                                     @csrf
+
+                                    
                                     <div class="form-group">
-                                        <input type="text" id="name" name="name" class="form-control @error('name') is-invalid @enderror"  placeholder="Name" required value="{{ old('name')}}">
+                                        <input type="text" id="name" name="name" class="form-control input-Default @error('name') is-invalid @enderror"  placeholder="Name" required value="{{ old('name')}}">
                                         @error('name')
                                             <div class="invalid-feedback">
                                                 {{ $message }}
@@ -54,7 +56,7 @@
                                         @enderror
                                     </div>
                                     <div class="form-group">
-                                        <input type="email" id="email" name="email" class="form-control @error('email') is-invalid @enderror"  placeholder="Email" required value="{{ old('email')}}">
+                                        <input type="email" id="email" name="email" class="form-control input-Default @error('email') is-invalid @enderror"  placeholder="Email" required value="{{ old('email')}}">
                                         @error('email')
                                             <div class="invalid-feedback">
                                                 {{ $message }}
@@ -144,26 +146,6 @@
             </div>
         </div>
     </div>
-    <script>
-        $(function(){
-            var hidestuff = function(){
-                $(".jabatan-form").hide();
-                $(".jk-form").hide();
-            }   
-            
-            $("select[name='role_id']").change(function(){
-                hidestuff();
-                
-                var value = $(this).val();
-                if(value == "3"){
-                    $(".jabatan-form").show();
-                    $(".jk-form").show();
-                }
-            });
-            hidestuff();
-        });
-    </script>
-    
 
     
 
