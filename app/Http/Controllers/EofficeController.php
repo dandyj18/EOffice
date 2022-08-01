@@ -630,7 +630,6 @@ class EofficeController extends Controller
     
     public function form_keluar()
     {
-        
         return view('content.surat.surat_keluar.form_keluar');
     }
 

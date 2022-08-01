@@ -17,6 +17,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+
 Route::middleware('auth')->group(function () {
 
 
@@ -117,8 +119,10 @@ Route::middleware('auth')->group(function () {
 
     //surat keluar
     Route::get('/surat-keluar', [App\Http\Controllers\EofficeController::class, 'surat_keluar'])->name('surat_keluar');
-    Route::get('/surat-keluar/form-surat-keluar', [App\Http\Controllers\EofficeController::class, 'form_keluar'])->name('form_keluar');
-
+    Route::get('wizard', function() {
+        $user = App\Models\User::all()->Where("jabatan_id", 1);
+        return view('content.surat.surat_keluar.form_keluar', ['user' => $user]);
+    });;
 
     //disposisi
     Route::get('/disposisi', [App\Http\Controllers\EofficeController::class, 'disposisi'])->name('disposisi');

@@ -18,7 +18,7 @@ class UserSeeder extends Seeder
         User::create([
             'name'=>'Hafid Muhamad',
             'email'=>'hafidmuhamad204@gmail.com',
-            'jabatan'=>'Wakil Direktur',
+            'jabatan_id'=>'1',
             'jenis_kelamin'=>'laki-laki',
             'role_id'=>'1',
             'alamat'=>'majalaya',
@@ -28,7 +28,7 @@ class UserSeeder extends Seeder
         User::create([
             'name'=>'Dandy Juhara',
             'email'=>'dandyjuhara18@gmail.com',
-            'jabatan'=>'Direktur',
+            'jabatan_id'=>'1',
             'jenis_kelamin'=>'laki-laki',
             'role_id'=>'1',
             'alamat'=>'Wistu Kencana',

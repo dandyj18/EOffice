@@ -2,11 +2,12 @@
 
 @section('content')
 
+@livewireStyles
 <div class="row page-titles mx-0">
     <div class="col p-md-0">
         <ol class="breadcrumb">
             <li class="breadcrumb-item">Surat</li>
-            <li class="breadcrumb-item"><a href="{{route('admin.surat_keluar')}}">Surat Keluar</a></li>
+            <li class="breadcrumb-item"><a href="{{ route('admin.surat_keluar') }}">Surat Keluar</a></li>
             <li class="breadcrumb-item active">Insert Surat Keluar</li>
         </ol>
     </div>

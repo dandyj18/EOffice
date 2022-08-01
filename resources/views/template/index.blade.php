@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>E-OFFICE</title>
-    @livewireStyles
+    
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="{{asset('asset/images/favicon.png')}}">
     <!-- Pignose Calender -->
@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="{{asset('asset/plugins/chartist-plugin-tooltips/css/chartist-plugin-tooltip.css')}}">
     <!-- Custom Stylesheet -->
     <link href="{{asset('asset/css/style.css')}}" rel="stylesheet">
-    <script src="asset/jquery/jquery-3.6.0.js"></script>
+    <script src="{{asset('asset/jquery/jquery-3.6.0.js')}}"></script>
     <link href="{{ asset('wizard.css') }}" rel="stylesheet" id="bootstrap-css">
 </head>
 
@@ -77,7 +77,7 @@
         <!--**********************************
             Content body end
         ***********************************-->
-        
+       
         
         <!--**********************************
             Footer start
