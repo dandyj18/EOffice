@@ -107,14 +107,6 @@
                     <label class="email_instansi">Email Instansi / Lembaga / Perusahaan</label>
                     <input type="text" class="form-control input-default" name="email_instansi" id="email_instansi" placeholder="Email Instansi / Lembaga / Perushaan" required="required">
                 </div>
-                <div class="form-group col-md-6">
-                    <label class="penerima">Nama Penerima</label>
-                    <input type="text" class="form-control input-default" name="penerima" id="penerima" placeholder="Penerima" required="required">
-                </div>
-                <div class="form-group col-md-6">
-                    <label class="no_telp_instansi">No.Telp Instansi / Lembaga / Perushaan</label>
-                    <input type="text" class="form-control input-default" name="no_telp_instansi" id="no_telp_instansi" placeholder="No.Telp Instansi / Lembaga / Perushaan" required="required">
-                </div>
                 <button class="btn btn-primary nextBtn btn-lg pull-right" type="button"
                     wire:click="secondStepSubmit">Next</button>
                 <button class="btn btn-danger nextBtn btn-lg pull-right" type="button"
